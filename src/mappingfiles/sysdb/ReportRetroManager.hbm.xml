@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ReportRetroManager" 
+    table="REPORT_RETRO_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="retroId"
+        type="java.lang.String"
+        column="RETRO_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="reportId"
+        type="java.lang.String"
+        column="REPORT_ID"
+        length="38"
+    />
+    <property
+        name="enable"
+        type="int"
+        column="ENABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="retroCode"
+        type="java.lang.String"
+        column="RETRO_CODE"
+        length="42"
+    />
+    <property
+        name="dispName"
+        type="java.lang.String"
+        column="DISP_NAME"
+        length="42"
+    />
+    <property
+        name="retroReportId"
+        type="java.lang.String"
+        column="RETRO_REPORT_ID"
+        length="38"
+    />
+    <property
+        name="retroCol"
+        type="java.lang.String"
+        column="RETRO_COL"
+        length="200"
+    />
+    <property
+        name="retroReplaceXml"
+        type="java.sql.Clob"
+        column="RETRO_REPLACE_XML"
+        
+    />
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="retroIndex"
+        type="int"
+        column="RETRO_INDEX"
+        not-null="true"
+        length="4"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

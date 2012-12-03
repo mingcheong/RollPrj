@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.EleVoucherDefine" 
+    table="ELE_VOUCHER_DEFINE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <composite-id>
+        <key-property 
+            name="setYear" 
+            column="SET_YEAR" 
+            type="int"
+            length="4"
+        />
+        <key-property 
+            name="chrId" 
+            column="CHR_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrCode" 
+            column="CHR_CODE" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="dispCode" 
+            column="DISP_CODE" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="chrName" 
+            column="CHR_NAME" 
+            type="java.lang.String"
+            length="60"
+        />
+        <key-property 
+            name="levelNum" 
+            column="LEVEL_NUM" 
+            type="int"
+            length="2"
+        />
+        <key-property 
+            name="isLeaf" 
+            column="IS_LEAF" 
+            type="int"
+            length="1"
+        />
+        <key-property 
+            name="enabled" 
+            column="ENABLED" 
+            type="int"
+            length="1"
+        />
+        <key-property 
+            name="createDate" 
+            column="CREATE_DATE" 
+            type="java.lang.String"
+            length="30"
+        />
+        <key-property 
+            name="createUser" 
+            column="CREATE_USER" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="latestOpDate" 
+            column="LATEST_OP_DATE" 
+            type="java.lang.String"
+            length="30"
+        />
+        <key-property 
+            name="isDeleted" 
+            column="IS_DELETED" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="latestOpUser" 
+            column="LATEST_OP_USER" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="lastVer" 
+            column="LAST_VER" 
+            type="java.lang.String"
+            length="30"
+        />
+        <key-property 
+            name="chrCode1" 
+            column="CHR_CODE1" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="chrCode2" 
+            column="CHR_CODE2" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="chrCode3" 
+            column="CHR_CODE3" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="chrCode4" 
+            column="CHR_CODE4" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="chrCode5" 
+            column="CHR_CODE5" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="rgCode" 
+            column="RG_CODE" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="parentId" 
+            column="PARENT_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrId1" 
+            column="CHR_ID1" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrId2" 
+            column="CHR_ID2" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrId3" 
+            column="CHR_ID3" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrId4" 
+            column="CHR_ID4" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="chrId5" 
+            column="CHR_ID5" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="stId" 
+            column="ST_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+    </composite-id>    
+
+
+
+
+
+
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
+

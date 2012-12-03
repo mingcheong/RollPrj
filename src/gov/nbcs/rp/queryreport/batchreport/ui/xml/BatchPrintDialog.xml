@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GBK"?>
+<panel id='panel_container' columns="30" heightReadjustable='true'>
+	<table id="tbl_body" cols="30" heightReadjustable='true'
+		isCheck="true">
+	</table>
+</panel>

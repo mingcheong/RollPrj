@@ -1,0 +1,11 @@
+package gov.nbcs.rp.common.action;
+
+public interface OperatorUI extends ActionedUI
+{
+	// ∆Ù”√
+	public void doEnable();
+
+
+	// Ω˚”√
+	public void doDisable();
+}

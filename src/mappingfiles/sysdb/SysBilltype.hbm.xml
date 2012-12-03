@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.1
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="mappingfiles.sysdb.SysBilltype" table="SYS_BILLTYPE"
+		lazy="false" dynamic-update="true" dynamic-insert="true">
+
+		<id name="BILLTYPE_ID" type="java.lang.String"
+			column="BILLTYPE_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="BILLTYPE_CODE" type="java.lang.String"
+			column="BILLTYPE_CODE" not-null="true" length="42" />
+		<property name="BILLTYPE_NAME" type="java.lang.String"
+			column="BILLTYPE_NAME" not-null="true" length="60" />
+		<property name="IS_BUSINCREASE" type="int"
+			column="IS_BUSINCREASE" length="1" />
+		<property name="BUSVOU_TYPE_ID" type="java.lang.String"
+			column="BUSVOU_TYPE_ID" length="38" />
+		<property name="NOBUDGETBUSVOU_TYPE_ID" type="java.lang.String"
+			column="NOBUDGETBUSVOU_TYPE_ID" length="38" />
+		<property name="IS_NEEDCHECKNOBUDGET" type="java.lang.Integer"
+			column="IS_NEEDCHECKNOBUDGET" length="38" />
+		<property name="COA_ID" type="java.lang.String" column="COA_ID"
+			length="38" />
+		<property name="BILLNORULE_ID" type="java.lang.String"
+			column="BILLNORULE_ID" length="38" />
+		<property name="TABLE_NAME" type="java.lang.String"
+			column="TABLE_NAME" length="100" />
+		<property name="BILLTYPE_CLASS" type="java.lang.Integer"
+			column="BILLTYPE_CLASS" length="1" />
+		<property name="ENABLED" type="java.lang.Integer"
+			column="ENABLED" length="1" />
+		<property name="LATEST_OP_DATE" type="java.lang.String"
+			column="LATEST_OP_DATE" length="30" />
+		<property name="LATEST_OP_USER" type="java.lang.String"
+			column="LATEST_OP_USER" length="42" />
+		<property name="SET_YEAR" type="java.lang.Integer"
+			column="SET_YEAR" length="4" />
+		<property name="LAST_VER" type="java.lang.String"
+			column="LAST_VER" length="30" />
+		<property name="SYS_ID" type="java.lang.String" column="SYS_ID"
+			length="42" />
+		<property name="FIELD_NAME" type="java.lang.String"
+			column="FIELD_NAME" length="60" />
+		<property name="UI_ID" type="java.lang.String" column="UI_ID"
+			length="42" />
+		<property name="FROM_BILLTYPE_ID" type="java.lang.String"
+			column="FROM_BILLTYPE_ID" length="42" />
+		<property name="FROM_UI_ID" type="java.lang.String"
+			column="FROM_UI_ID" length="42" />
+		<property name="TO_BILLTYPE_ID" type="java.lang.String"
+			column="TO_BILLTYPE_ID" length="42" />
+		<property name="TO_UI_ID" type="java.lang.String"
+			column="TO_UI_ID" length="42" />
+		<property name="VOU_CONTROL_ID" type="java.lang.String"
+			column="VOU_CONTROL_ID" length="42" />
+		<!-- Associations -->
+
+		<!-- bi-directional one-to-many association to SysBilltypeAssele -->
+
+
+
+
+
+
+
+
+
+
+
+
+	</class>
+</hibernate-mapping>
+

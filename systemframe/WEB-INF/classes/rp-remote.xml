@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--qzc 查询  -->
+	<bean name="/queryToolHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.queryToolService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.common.datactrl.Query</value>
+		</property>
+	</bean>
+
+	<!-- qzc 公共接口发布-->
+	<bean name="/pubInterfaceHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.pubInterfaceService" />
+		</property>
+		<property name="serviceInterface">
+			<value>
+				gov.nbcs.rp.common.pubinterface.ibs.IPubInterface
+			</value>
+		</property>
+	</bean>
+
+	<!-- 钱自成 项目录入表-->
+	<bean name="/prjInputHttpInvokerQuery"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjInputService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.input.ibs.IPrjInput</value>
+		</property>
+	</bean>
+
+	<!--钱自成  项目类别管理-->
+	<bean name="/PrjSortHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjSortService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.sys.prjsort.ibs.IPrjSort</value>
+		</property>
+	</bean>
+
+	<!--qzc项目申报界面设置 -->
+	<bean name="/rp_PrjMainHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjMainService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.prjset.prjmain.ibs.PrjMainIBS</value>
+		</property>
+	</bean>
+
+	<!-- 钱自成： 项目审核-->
+	<bean name="/PrjAuditHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjAuditService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.audit.ibs.IPrjAudit</value>
+		</property>
+	</bean>
+
+	<!-- 钱自成 项目审核配置-->
+	<bean name="/prjAuditSetHttpInvokerQuery"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjAuditSetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.prjset.auditset.ibs.IPrjAuditSet</value>
+		</property>
+	</bean>
+
+	<!-- 表数据同步 -->
+	<bean name="/syncServiceHttpInvokerQuery"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.SyncService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.sync.ibs.SyncInterface</value>
+		</property>
+	</bean>
+
+	<!-- 表数据同步 -->
+	<bean name="/syncServiceHttpInvokerQuery"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.SyncService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.sync.ibs.SyncInterface</value>
+		</property>
+	</bean>
+
+	<!--钱自成 导出模块-->
+	<bean name="/ExportHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.ExportService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.common.export.ibs.IExport</value>
+		</property>
+	</bean>
+	<!-- 钱自成： 项目查询-->
+	<bean name="/QrBudgetHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.QrBudgetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.query.ibs.IQrBudget</value>
+		</property>
+	</bean>
+	<!--自定义查询表-->
+	<bean name="/defineReportHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.defineReportService" />
+		</property>
+		<property name="serviceInterface">
+			<value>
+				gov.nbcs.rp.queryreport.definereport.ibs.IDefineReport
+			</value>
+		</property>
+	</bean>
+
+	<!--行报表设置服务-->
+	<bean name="/rowSetHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.rowSetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.queryreport.rowset.ibs.IRowSet</value>
+		</property>
+	</bean>
+
+
+	<!--数据字典功能服务-->
+	<bean name="/DataDictHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.dataDictService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.dicinfo.datadict.ibs.IDataDictBO</value>
+		</property>
+	</bean>
+
+	<!--部门预算查询表-->
+	<bean name="/qrBudgetHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.qrBudgetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>
+				gov.nbcs.rp.queryreport.qrbudget.ibs.IQrBudget
+			</value>
+		</property>
+	</bean>
+
+	<!--收支总表信息设置-->
+	<bean name="/szzbSetHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.szzbSetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.queryreport.szzbset.ibs.ISzzbSet</value>
+		</property>
+	</bean>
+
+
+	<!--引用列管理-->
+	<bean name="/sysRefColHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.sysRefColService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.sys.sysrefcol.ibs.ISysRefCol</value>
+		</property>
+	</bean>
+
+
+	<!--打印模块-->
+	<bean name="/PrintHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrintService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.common.print.ibs.IPrint</value>
+		</property>
+	</bean>
+	<!--用户对报表 -->
+	<bean name="/UserToReportHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.UserToReportBOService" />
+		</property>
+		<property name="serviceInterface">
+			<value>
+				gov.nbcs.rp.sys.usertoreport.ibs.IUserToReport
+			</value>
+		</property>
+	</bean>
+
+	<!-- nj 项目同步-->
+	<bean name="/PrjSyncHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.PrjSyncService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.prjsync.ibs.IPrjSync</value>
+		</property>
+	</bean>
+
+	<!-- nj 项目预算-->
+	<bean name="/GeBudgetHttpInvoker"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerServiceExporter">
+		<property name="service">
+			<ref bean="rp.GeBudgetService" />
+		</property>
+		<property name="serviceInterface">
+			<value>gov.nbcs.rp.generateBudget.ibs.IGeBudget</value>
+		</property>
+	</bean>
+</beans>

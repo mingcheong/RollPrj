@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysAutotask" 
+    table="SYS_AUTOTASK"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="AUTOTASK_ID"
+        type="java.lang.Integer"
+        column="AUTOTASK_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="AUTOTASK_CODE"
+        type="java.lang.String"
+        column="AUTOTASK_CODE"
+        length="42"
+    />
+    <property
+        name="AUTOTASK_NAME"
+        type="java.lang.String"
+        column="AUTOTASK_NAME"
+        length="60"
+    />
+    <property
+        name="AUTOTASK_DESC"
+        type="java.lang.String"
+        column="AUTOTASK_DESC"
+        length="2000"
+    />
+    <property
+        name="AUTOTASK_TYPE"
+        type="java.lang.Integer"
+        column="AUTOTASK_TYPE"
+        length="1"
+    />
+    <property
+        name="START_DATE"
+        type="java.lang.String"
+        column="START_DATE"
+        length="30"
+    />
+    <property
+        name="END_DATE"
+        type="java.lang.String"
+        column="END_DATE"
+        length="30"
+    />    
+    <property
+        name="TASKINTERVAL"
+        type="java.lang.Integer"
+        column="TASKINTERVAL"
+        length="9"
+    />
+    <property
+        name="RUN_TIMES"
+        type="java.lang.Integer"
+        column="RUN_TIMES"
+        length="9"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="AUTOTASK_BEAN"
+        type="java.lang.String"
+        column="AUTOTASK_BEAN"
+        length="500"
+    />
+    <property
+        name="AUTOTASK_PARAM"
+        type="java.lang.String"
+        column="AUTOTASK_PARAM"
+        length="500"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="38"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="SCHEDULE_CRONTYPE"
+        type="java.lang.Integer"
+        column="SCHEDULE_CRONTYPE"
+        length="1"
+    />
+    <property
+        name="MONTH_OF_YEAR"
+        type="java.lang.Integer"
+        column="MONTH_OF_YEAR"
+        length="9"
+    />
+    <property
+        name="DAY_OF_WEEK"
+        type="java.lang.Integer"
+        column="DAY_OF_WEEK"
+        length="9"
+    />
+    <property
+        name="DAY_OF_MONTH"
+        type="java.lang.Integer"
+        column="DAY_OF_MONTH"
+        length="9"
+    />
+    <property
+        name="HOUR_OF_DAY"
+        type="java.lang.Integer"
+        column="HOUR_OF_DAY"
+        length="9"
+    />
+    <property
+        name="MINUTE_OF_DAY"
+        type="java.lang.Integer"
+        column="MINUTE_OF_DAY"
+        length="9"
+    />
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        length="42"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

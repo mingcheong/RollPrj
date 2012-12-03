@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+    <class name="mappingfiles.sysdb.SysWfConditionLine" table="SYS_WF_CONDITION_LINES" lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true" >
+        <id name="LINE_ID" type="java.lang.Long">
+            <column name="LINE_ID" precision="10" scale="0" />
+            <generator class="sequence">
+            	<param name="sequence">"SEQ_SYS_FRAME_ID"</param>
+            </generator>
+        </id>
+        <property name="CONDITION_ID" type="java.lang.String">
+            <column name="CONDITION_ID" length="38" />
+        </property>
+        <!-- many-to-one name="sysWfConditions" class="mappingfiles.sysdb.SysWfCondition" fetch="select">
+            <column name="CONDITION_ID" length="38"  />
+        </many-to-one -->
+        <!--property name="CONDITION_TABLE_NAME" type="java.lang.String">
+            <column name="CONDITION_TABLE_NAME" length="38" />
+        </property-->
+        <!--property name="COLUMN_NAME" type="java.lang.String">
+            <column name="COLUMN_NAME" length="38" />
+        </property-->
+        <property name="OPERATOR" type="java.lang.String">
+            <column name="OPERATOR" length="10" />
+        </property>
+        <!--property name="CONSTANT" type="java.lang.String">
+            <column name="CONSTANT" length="60" />
+        </property-->
+        <property name="LOGIC_OPERATOR" type="java.lang.String">
+            <column name="LOGIC_OPERATOR" length="20" />
+        </property>
+        <property name="CREATE_USER" type="java.lang.String">
+            <column name="CREATE_USER" length="42" />
+        </property>
+        <property name="CREATE_DATE" type="java.lang.String">
+            <column name="CREATE_DATE" length="30" />
+        </property>
+        <property name="LATEST_OP_USER" type="java.lang.String">
+            <column name="LATEST_OP_USER" length="42" />
+        </property>
+        <property name="LATEST_OP_DATE" type="java.lang.String">
+            <column name="LATEST_OP_DATE" length="30" />
+        </property>
+        <property name="LEFT_PARE" type="java.lang.String">
+            <column name="LEFT_PARE" length="38" />
+        </property>
+        <property name="LEFT_PARAID" type="java.lang.String">
+            <column name="LEFT_PARAID" length="38" />
+        </property>
+        <property name="RIGHT_PARE" type="java.lang.String">
+            <column name="RIGHT_PARE" length="38" />
+        </property>
+        <property name="RIGHT_PARAID" type="java.lang.String">
+            <column name="RIGHT_PARAID" length="38" />
+        </property>
+        <!--property name="columnType" type="java.lang.String">
+            <column name="COLUMN_TYPE" length="10" />
+        </property-->
+        <property name="LAST_VER" type="java.lang.String">
+            <column name="LAST_VER" length="30" />
+        </property>
+        <property name="LINE_SORT" type="java.lang.Long">
+            <column name="LINE_SORT" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

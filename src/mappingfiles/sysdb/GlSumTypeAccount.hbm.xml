@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlSumTypeAccount" 
+    table="GL_SUM_TYPE_ACCOUNT"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="SUM_ACCOUNT_ID"
+        type="java.lang.String"
+        column="SUM_ACCOUNT_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SUM_TYPE_ID"
+        type="java.lang.String"
+        column="SUM_TYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="AS_ID"
+        type="java.lang.String"
+        column="AS_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="SUM_SYMBOL"
+        type="int"
+        column="SUM_SYMBOL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="VALUE_TYPE"
+        type="int"
+        column="VALUE_TYPE"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to EleAccountantSubject -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlSumType -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

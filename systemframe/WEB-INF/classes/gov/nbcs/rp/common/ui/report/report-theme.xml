@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		Report录入表格样式配置文件，以下为可选值：
+		
+		- textStyle:
+		public static final byte TextStyle_WrapText = 0; // 换行.
+		public static final byte TextStyle_SingleLine = 1; // 单行,超出部分不显示.
+		public static final byte TextStyle_SingleLineAdjustFont = 2; // 单行,调整字体来显示所有的字.
+		// denny: 多行，固定单元格高和宽，调整字体来显示所有的字
+		public static final byte TextStyle_MultiLineAdjustFont = 3;
+		
+		- horizontalAlignment:
+		- verticalAlignment:
+		public static final byte CENTER = 0;
+		public static final byte TOP = 1;
+		public static final byte LEFT = 2;
+		public static final byte BOTTOM = 3;
+		public static final byte RIGHT = 4;
+		public static final byte GENERAL = 5;
+		public static final byte DISTRIBUTED = 6;
+	-->
+
+	<!-- 默认的表头单元格样式 -->
+	<bean id="fb.cellstyle.HEADER_DEFAULT"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>0</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.HEADER" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>0</value>
+		</property>
+	</bean>
+	<!-- 表头单元格样式，大字号 -->
+	<bean id="fb.cellstyle.HEADER_BIG_FONT"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>0</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.HEADER" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.BIG_HEADER" />
+		</property>
+		<property name="textStyle">
+			<value>0</value>
+		</property>
+	</bean>
+	<!-- 可编辑、非数字、非计算行 -->
+	<bean id="fb.cellstyle.EDITABLE"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>2</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.EDITABLE" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 默认表体样式 -->
+	<bean id="fb.cellstyle.NORMAL"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>2</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.EDITABLE" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 不可编辑、非数字、非计算行 -->
+	<bean id="fb.cellstyle.READONLY"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>2</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.READONLY" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 不可编辑、非数字、计算行 -->
+	<bean id="fb.cellstyle.READONLY_SUM"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>2</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.READONLY" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLUE" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.BIG" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 不可编辑、正数、计算行 -->
+	<bean id="fb.cellstyle.READONLY_POSITIVE_SUM"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>4</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.READONLY" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLUE" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.BIG" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 不可编辑、负数、计算行 -->
+	<bean id="fb.cellstyle.READONLY_NEGATIVE_SUM"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>4</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.READONLY" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.RED" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.BIG" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 可编辑、数字、非计算行 -->
+	<bean id="fb.cellstyle.EDITABLE_NUMBER"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>4</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.EDITABLE" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 不可编辑、数字、非计算行 -->
+	<bean id="fb.cellstyle.READONLY_NUMBER"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>4</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>0</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.READONLY" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>1</value>
+		</property>
+	</bean>
+	<!-- 默认的打印样式 -->
+	<bean id="fb.cellstyle.PRINTING"
+		class="gov.nbcs.rp.common.ui.report.cell.CellStyleFactoryBean">
+		<property name="horizontalAlignment">
+			<value>2</value>
+		</property>
+		<property name="verticalAlignment">
+			<value>4</value>
+		</property>
+		<property name="backgroundColor">
+			<ref local="fb.cellstyle.color.EDITABLE" />
+		</property>
+		<property name="foregroundColor">
+			<ref local="fb.cellstyle.color.BLACK" />
+		</property>
+		<property name="borderColor">
+			<ref local="fb.cellstyle.color.LIGHT_GRAY" />
+		</property>
+		<property name="font">
+			<ref local="fb.cellstyle.font.NORMAL" />
+		</property>
+		<property name="textStyle">
+			<value>0</value>
+		</property>
+	</bean>
+
+	<!-- 表头背景颜色 -->
+	<bean id="fb.cellstyle.color.HEADER"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>250</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>228</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>184</value>
+		</property>
+	</bean>
+
+	<!-- 表体中可编辑状态单元格背景颜色 -->
+	<bean id="fb.cellstyle.color.EDITABLE"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>255</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>255</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>255</value>
+		</property>
+	</bean>
+
+	<!-- 表体中只读状态单元格背景颜色 -->
+	<bean id="fb.cellstyle.color.READONLY"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>235</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>235</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>235</value>
+		</property>
+	</bean>
+
+	<!-- 表体中被选中单元格背景颜色 -->
+	<bean id="fb.cellstyle.color.SELECTED"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>200</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>200</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>255</value>
+		</property>
+	</bean>
+
+	<!-- 表体中着重提示单元格背景颜色 -->
+	<bean id="fb.cellstyle.color.ATTENT"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>253</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>208</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>98</value>
+		</property>
+	</bean>
+
+	<!-- 表体中高亮显示计算单元格背景颜色 -->
+	<bean id="fb.cellstyle.color.CALC"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>175</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>175</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>255</value>
+		</property>
+	</bean>
+
+	<bean id="fb.cellstyle.color.BLACK"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>0</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>0</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>0</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.color.RED"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>255</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>0</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>0</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.color.BLUE"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>0</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>0</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>255</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.color.ODD_ROW"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>235</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>235</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>235</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.color.EVEN_ROW"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>235</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>235</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>235</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.color.LIGHT_GRAY"
+		class="gov.nbcs.rp.common.ui.ColorFactoryBean">
+		<!-- R -->
+		<property name="red">
+			<value>192</value>
+		</property>
+		<!-- G -->
+		<property name="green">
+			<value>192</value>
+		</property>
+		<!-- B -->
+		<property name="blue">
+			<value>192</value>
+		</property>
+	</bean>
+	<bean id="fb.cellstyle.font.NORMAL" class="java.awt.Font">
+		<constructor-arg index="0">
+			<value>宋体</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<value>12</value>
+		</constructor-arg>
+	</bean>
+	<bean id="fb.cellstyle.font.BIG" class="java.awt.Font">
+		<constructor-arg index="0">
+			<value>宋体</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<value>13</value>
+		</constructor-arg>
+	</bean>
+	<bean id="fb.cellstyle.font.BIG_HEADER" class="java.awt.Font">
+		<constructor-arg index="0">
+			<value>宋体</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>0</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<value>14</value>
+		</constructor-arg>
+	</bean>
+
+</beans>

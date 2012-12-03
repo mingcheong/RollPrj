@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- Tomcat使用，直连数据库 配置开始 -->
+	<bean id="datasourceGDXM" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		
+		<!-- 鄞州财政测试库 
+		<property name="url" value="jdbc:oracle:thin:@10.144.24.50:1521:yzcz" />
+		<property name="username" value="t_rollp0817"/>
+		-->
+		
+		<!-- 公司服务器 -->
+		<property name="url" value="jdbc:oracle:thin:@10.144.24.50:1521:yzcz" /> 
+		<property name="username" value="rollpyz910"/>
+		
+		<!-- 测试服务器 
+		<property name="url" value="jdbc:oracle:thin:@192.168.1.201:1521:orcl" /> 
+		<property name="username" value="rollpyz"/>	-->	
+		
+		<!-- 密码 -->
+		<property name="password" value="1" />
+	</bean>
+
+	<!-- Tomcat使用，直连数据库 配置结束 -->
+
+	<!-- Weblogic使用，jndi连接数据库 配置开始 -->
+	<!-- 请参照下面的配置，配置两个数据源-->
+	<!--
+		<bean id="datasource2008" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+		<value>v60c</value>
+		</property>
+		</bean>
+		<bean id="datasource2007" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+		<value>v60c</value>
+		</property>
+		
+		</bean>
+	-->
+	<!-- Weblogic使用，jndi连接数据库 配置结束 -->
+
+	<bean id="multiDataSource" class="com.foundercy.pf.util.datasource.MultiDataSource">
+		<property name="defaultDataSource">
+			<ref bean="datasourceGDXM" />
+		</property>
+		<property name="dataSources">
+			<map>
+				<entry key="2011">
+					<ref bean="datasourceGDXM" />
+				</entry>
+			<!--  	<entry key="2008">
+					<ref bean="datasource2008" />
+				</entry>-->
+			</map>
+		</property>
+	</bean>
+
+
+	<!--以下是SessionFactory配置信息-->
+	<!-- SessionFactory定义	-->
+	<bean id="mysessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="multiDataSource" />
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<!--两层开发
+					<value>mappingfiles</value>-->
+
+				<!--三层开发-->
+				<value>/WEB-INF/classes/mappingfiles</value>
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.c3p0.min_size">10</prop>
+				<prop key="hibernate.c3p0.max_size">20</prop>
+				<prop key="hibernate.c3p0.max_statements">100</prop>
+				<prop key="hibernate.c3p0.idle_test_period">3000</prop>
+				<prop key="hibernate.c3p0.acquire_increment">2</prop>
+				<prop key="hibernate.c3p0.timeout">10000</prop>
+				<prop key="hibernate.jdbc.fetch_size">150</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!--以下是Transaction配置信息-->
+	<!-- Hibernate TransactionManager定义 -->
+	<bean id="hibernateTransManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="mysessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 以下是TransactionTemplate配置信息，用于编程式事务-->
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager">
+			<ref local="hibernateTransManager" />
+		</property>
+	</bean>
+
+	<!-- JDBC TransactionManager定义 -->
+	<!--
+		<bean id="jdbcTransManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource"><ref local="datasource_dev"/></property>
+		</bean>	
+	-->
+
+	<!-- TransactionProxy事务代理对象定 -->
+
+	<bean id="hibernateTransProxy" abstract="true" lazy-init="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="hibernateTransManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<!-- 
+					transactionAttributes属性可以设置事务处理的方式，事务隔离级别，是否只读三个属性，用逗号隔开
+					事务隔离级别各数据库系统不完全支持，一般不设置，用默认的即可
+					事务处理选项有如下几个：（前面2个常用）
+					PROPAGATION_REQUIRED 		－ 需要事务处理。如果当前不存在事务环境，则创建一个
+					PROPAGATION_SUPPORTS 		－ 如果当前存在事务环境，则作为其中的一部分。如果不存在，则按非事务方式执行
+					PROPAGATION_REQUIRES_NEW 	－ 需要事务处理。并总是开启一个新事务。如果已经存在事务环境，则挂起之
+					PROPAGATION_MANDATORY 		－ 执行到指定方法时，必须已经存在事务环境，否则出错
+					PROPAGATION_NEVER 		－ 不支持事务操作，如果存在事务环境会出错
+					PROPAGATION_NOT_SUPPORTED 	－ 不支持事务操作。如果存在事务，则挂起
+				-->
+
+				<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS,readOnly</prop>
+				<prop key="getBillNo">PROPAGATION_REQUIRES_NEW,-Exception</prop>
+				<prop key="getCCIDByXMLData">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="getCCIDbyELEvalue">PROPAGATION_REQUIRED,-Exception</prop>
+				<!-- workflow -->
+				<prop key="getBytes">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="getOldDto">PROPAGATION_REQUIRED,-Exception</prop>
+
+				<!-- rule -->
+				<prop key="getRcid">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="getDisplayData">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="getDisplayDataByRuleData">PROPAGATION_REQUIRED,-Exception</prop>
+
+
+				<prop key="*">PROPAGATION_REQUIRED,-Exception</prop>
+
+			</props>
+		</property>
+
+		<property name="preInterceptors">
+			<list>
+				<ref bean="framework.log.logErrorAdvisor" />
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="framework.log.logErrorAdvisor" class="com.foundercy.pf.util.service.ErrorLogAdvice" />
+	<!--
+		<bean id="jdbcTransProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"  abstract="true" lazy-init="true">		
+		<property name="transactionManager"><ref bean="jdbcTransManager"/></property>  
+		<property name="transactionAttributes">
+		<props>
+		<prop key="find*">PROPAGATION_SUPPORTS,readOnly</prop>
+		<prop key="get*">PROPAGATION_SUPPORTS,readOnly</prop>
+		<prop key="*">PROPAGATION_REQUIRED,-Exception</prop>                             
+		</props>
+		</property>
+		
+		<property name="preInterceptors">
+		<ref bean="framework.log.logErrorAdvisor"/>
+		</property>        
+		
+		</bean>
+	-->
+	<!-- 业务组件需要注入的dao基类 -->
+	<bean id="generalDAO" class="com.foundercy.pf.util.dao.springdao.GeneralDAO">
+		<property name="sessionFactory" ref="mysessionFactory" />
+	</bean>
+
+</beans>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--qzc 记录重要用户动作的切面-->
+	<bean id="logAdviceImpl"
+		class="gov.nbcs.rp.common.logHandler.LogAdviceImpl">
+	</bean>
+	<bean id="logInterceptor"
+		class="gov.nbcs.rp.common.logHandler.LogInvocationHandler">
+		<property name="ilog">
+			<ref local="logAdviceImpl" />
+		</property>
+	</bean>
+	<bean id="logPointcutAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="logInterceptor" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>.*saveColumnWidth.*</value><!--保存列宽操作 -->
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- qzc 查询 -->
+	<bean id="rp.queryTool"
+		class="gov.nbcs.rp.common.datactrl.QueryImpl">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+
+	<bean id="rp.queryToolService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.queryTool" />
+		</property>
+	</bean>
+
+	<!--qzc： 公共接口，比如过滤权限的单位，公共函数等 -->
+	<bean id="rp.pubInterface4Log"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>
+				gov.nbcs.rp.common.pubinterface.ibs.IPubInterface
+			</value>
+		</property>
+		<property name="target" ref="rp.pubInterface" />
+		<property name="interceptorNames">
+			<value>logPointcutAdvisor</value>
+		</property>
+	</bean>
+
+	<bean id="rp.pubInterface" parent="rp.prjectManageBO"
+		class="gov.nbcs.rp.common.pubinterface.bs.PubInterfaceBO">
+	</bean>
+	<bean id="rp.pubInterfaceService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.pubInterface" />
+		</property>
+	</bean>
+
+	<!--钱自成：项目类别管理-->
+	<bean id="rp.PrjSortExpBO"
+		class="gov.nbcs.rp.sys.prjsort.bs.PrjSortBO">
+	</bean>
+	<bean id="rp.PrjSortService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjSortExpBO" />
+		</property>
+	</bean>
+
+	<!--qzc 项目录入 -->
+	<bean id="rp.PrjInputBO" parent="rp.prjectManageBO"
+		class="gov.nbcs.rp.input.bs.PrjInputBO">
+
+	</bean>
+	<bean id="rp.PrjInputService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjInputBO" />
+		</property>
+	</bean>
+
+	<!-- qzc 项目申报界面设置 -->
+	<bean id="rp.PrjMainBO"
+		class="gov.nbcs.rp.prjset.prjmain.bs.PrjMainBO">
+		<!--property name="dao" ref="generalDAO" /-->
+	</bean>
+	<bean id="rp.PrjMainService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjMainBO" />
+		</property>
+	</bean>
+
+	<!--钱自成 项目审核-->
+	<bean id="rp.PrjAuditBO" parent="rp.prjectManageBO"
+		class="gov.nbcs.rp.audit.bs.PrjAuditBO">
+
+	</bean>
+	<bean id="rp.PrjAuditService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjAuditBO" />
+		</property>
+	</bean>
+
+	<!--qzc 项目审核配置 -->
+	<bean id="rp.PrjAuditSetBO"
+		class="gov.nbcs.rp.prjset.auditset.bs.PrjAuditSetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.PrjAuditSetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjAuditSetBO" />
+		</property>
+	</bean>
+	<!-- 表数据同步 koradji-->
+	<bean id="rp.SyncImpl" class="gov.nbcs.rp.sync.bs.SyncImpl">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+
+	<bean id="rp.SyncService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.SyncImpl" />
+		</property>
+	</bean>
+
+	<!-- 钱自成 导出模块 -->
+	<bean id="rp.ExportBO"
+		class="gov.nbcs.rp.common.export.bs.ExportBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.ExportService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.ExportBO" />
+		</property>
+	</bean>
+
+	<!-- 项目查询-->
+	<bean id="rp.QrBudgetBO" class="gov.nbcs.rp.query.bs.QrBudgetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.QrBudgetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.QrBudgetBO" />
+		</property>
+	</bean>
+
+	<!--自定义查询表-->
+	<bean id="rp.defineReportBO"
+		class="gov.nbcs.rp.queryreport.definereport.bs.DefineReportBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.defineReportService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.defineReportBO" />
+		</property>
+	</bean>
+
+	<!--行报表服务-->
+	<bean id="rp.rowSetBO"
+		class="gov.nbcs.rp.queryreport.rowset.bs.RowSetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.rowSetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.rowSetBO" />
+		</property>
+	</bean>
+
+
+	<!--数据字典功能服务-->
+	<bean id="rp.dataDictBO"
+		class="gov.nbcs.rp.dicinfo.datadict.bs.DataDictBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.dataDictService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.dataDictBO" />
+		</property>
+	</bean>
+
+
+
+	<!-- 部门预算查询表-->
+	<bean id="rp.qrBudgetBO"
+		class="gov.nbcs.rp.queryreport.qrbudget.bs.QrBudgetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.qrBudgetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.qrBudgetBO" />
+		</property>
+	</bean>
+
+
+	<!-- 收支总表信息设置-->
+	<bean id="rp.szzbSetBO"
+		class="gov.nbcs.rp.queryreport.szzbset.bs.SzzbSetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.szzbSetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.szzbSetBO" />
+		</property>
+	</bean>
+
+
+	<!--引用列管理-->
+	<bean id="rp.sysRefColBO"
+		class="gov.nbcs.rp.sys.sysrefcol.bs.SysRefColBO">
+		<!-- property name="dao" ref="generalDAO" /-->
+	</bean>
+	<bean id="rp.sysRefColService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.sysRefColBO" />
+		</property>
+	</bean>
+
+	<!--打印模块 -->
+	<bean id="rp.PrintBO" class="gov.nbcs.rp.common.print.bs.PrintBO">
+		<!-- property name="dao" ref="generalDAO" /-->
+	</bean>
+	<bean id="rp.PrintService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrintBO" />
+		</property>
+	</bean>
+
+	<!--用户对报表 -->
+	<bean id="rp.UserToReportBO"
+		class="gov.nbcs.rp.sys.usertoreport.bs.UserToReportBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.UserToReportBOService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.UserToReportBO" />
+		</property>
+	</bean>
+	<!-- 业务组件需要注入的dao基类 -->
+	<bean id="prjectDAO" class="gov.nbcs.rp.dao.PrjectDAO">
+		<property name="sessionFactory" ref="mysessionFactory" />
+	</bean>
+	<!-- dao基类 -->
+	<bean id="rp.abstractBO" abstract="true"
+		class="gov.nbcs.rp.bs.AbstractBO">
+		<property name="dao" ref="prjectDAO"></property>
+	</bean>
+
+	<!--SB 待办事项-->
+	<bean id="rp.bussinesMessage"
+		class="gov.nbcs.rp.Rp2BussinessMessage">
+		<property name="dao" ref="generalDAO"></property>
+	</bean>
+
+	<!--SB 工作流-->
+	<bean id="rp.prjectManageBO" parent="rp.abstractBO"
+		class="gov.nbcs.rp.bs.PrjectManageBO">
+	</bean>
+
+
+	<!--nj   项目同步 -->
+	<bean id="rp.PrjSyncBO" class="gov.nbcs.rp.prjsync.bs.PrjSyncBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.PrjSyncService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.PrjSyncBO" />
+		</property>
+	</bean>
+
+
+	<!--nj   生成预算 -->
+	<bean id="rp.GeBudgetBO"
+		class="gov.nbcs.rp.generateBudget.bs.GeBudgetBO">
+		<property name="dao" ref="generalDAO" />
+	</bean>
+	<bean id="rp.GeBudgetService" parent="hibernateTransProxy">
+		<property name="target">
+			<ref local="rp.GeBudgetBO" />
+		</property>
+	</bean>
+
+</beans>

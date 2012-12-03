@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlBusVoucher" 
+    table="GL_BUS_VOUCHER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="HEAD_ID"
+        type="java.lang.String"
+        column="HEAD_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="VOU_ID"
+        type="java.lang.String"
+        column="VOU_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="VOU_TYPE_ID"
+        type="java.lang.String"
+        column="VOU_TYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="SET_MONTH"
+        type="int"
+        column="SET_MONTH"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="BILL_DATE"
+        type="java.lang.String"
+        column="BILL_DATE"
+        length="30"
+    />
+    <property
+        name="IS_END"
+        type="java.lang.Integer"
+        column="IS_END"
+        length="1"
+    />
+    <property
+        name="FLOW_ID"
+        type="java.lang.Long"
+        column="FLOW_ID"
+        length="10"
+    />
+    <property
+        name="IS_VALID"
+        type="java.lang.Integer"
+        column="IS_VALID"
+        length="1"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="VOU_NO"
+        type="java.lang.String"
+        column="VOU_NO"
+        length="42"
+    />
+    <property
+        name="BILLTYPE_ID"
+        type="java.lang.String"
+        column="BILLTYPE_ID"
+        length="38"
+    />
+    <property
+        name="IS_BUSINCREASE"
+        type="java.lang.Integer"
+        column="IS_BUSINCREASE"
+        length="1"
+    />
+    <property
+        name="ST_ID"
+        type="java.lang.String"
+        column="ST_ID"
+        length="38"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysUsermanage -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysUsermanage -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlBusvouType -->
+    
+        
+    
+        
+    
+    <!-- bi-directional one-to-many association to GlBusVoucherDetail -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRelationManager" 
+    table="SYS_RELATION_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="RELATION_ID"
+        type="java.lang.String"
+        column="RELATION_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="RELATION_CODE"
+        type="java.lang.String"
+        column="RELATION_CODE"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="PRI_ELE_CODE"
+        type="java.lang.String"
+        column="PRI_ELE_CODE"
+        length="42"
+    />
+    <property
+        name="SEC_ELE_CODE"
+        type="java.lang.String"
+        column="SEC_ELE_CODE"
+        length="42"
+    />
+    <property
+        name="SET_YEAR"
+        type="java.lang.Integer"
+        column="SET_YEAR"
+        length="4"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="IS_DELETED"
+        type="java.math.BigDecimal"
+        column="IS_DELETED"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+	<property
+        name="RELATION_TYPE"
+        type="int"
+        column="RELATION_TYPE"
+        length="4"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

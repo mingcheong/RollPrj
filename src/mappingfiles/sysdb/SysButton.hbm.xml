@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysButton" 
+    table="SYS_BUTTON"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="BUTTON_ID"
+        type="java.lang.String"
+        column="BUTTON_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="ACTION_ID"
+        type="java.lang.String"
+        column="ACTION_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="MODULE_ID"
+        type="java.lang.String"
+        column="MODULE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="DISPLAY_ORDER"
+        type="int"
+        column="DISPLAY_ORDER"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="DISPLAY_TITLE"
+        type="java.lang.String"
+        column="DISPLAY_TITLE"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="TIPS"
+        type="java.lang.String"
+        column="TIPS"
+        length="200"
+    />
+    <property
+        name="GROUP_NAME"
+        type="java.lang.String"
+        column="GROUP_NAME"
+        length="38"
+    />
+    <property
+        name="BUTTON_ICON"
+        type="java.lang.String"
+        column="BUTTON_ICON"
+        length="100"
+    />
+    <property
+        name="GROUP_ICON"
+        type="java.lang.String"
+        column="GROUP_ICON"
+        length="38"
+    />
+    <property
+        name="PARENT_BUTTON_ID"
+        type="java.lang.String"
+        column="PARENT_BUTTON_ID"
+        length="38"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SysModuleStatusButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional many-to-one association to SysModule -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ExcDataType" 
+    table="EXC_DATA_TYPE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+<!--
+    <id
+        name="DATA_TYPE_CODE"
+        type="java.lang.String"
+        column="DATA_TYPE_CODE"
+    >
+        <generator class="assigned" />
+    </id>
+-->
+	<composite-id>
+		<key-property 
+			name="DATA_TYPE_CODE"
+			type="java.lang.String"
+			column="DATA_TYPE_CODE"
+			length="42"/>
+		<key-property 
+			name="SET_YEAR"
+			type="int"
+			column="SET_YEAR"
+			length="4"/>
+	</composite-id>
+
+
+    <property
+        name="DATA_TYPE_NAME"
+        type="java.lang.String"
+        column="DATA_TYPE_NAME"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="SENDER_SYSTEM_CODE"
+        type="java.lang.String"
+        column="SENDER_SYSTEM_CODE"
+        length="42"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <!-- Associations -->
+    <property 
+		name="COMPRESSCODE"
+		type="java.lang.String"
+		column="COMPRESSCODE"
+		length="10"
+	/> 
+    <property 
+		name="ENCRPTCODE"
+		type="java.lang.String"
+		column="ENCRPTCODE"
+		length="10"
+	/>
+	<property 
+		name="EXCHANGE_TYPE"
+		type="int"
+		column="EXCHANGE_TYPE"
+		length="1"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysUserpara" 
+    table="SYS_USERPARA"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="CHR_ID"
+        type="java.lang.String"
+        column="CHR_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="CHR_CODE"
+        type="java.lang.String"
+        column="CHR_CODE"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="CHR_NAME"
+        type="java.lang.String"
+        column="CHR_NAME"
+        length="60"
+    />
+    <property
+        name="CHR_VALUE"
+        type="java.lang.String"
+        column="CHR_VALUE"
+        length="100"
+    />
+    <property
+        name="CHR_DESC"
+        type="java.lang.String"
+        column="CHR_DESC"
+        length="200"
+    />
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        length="42"
+    />
+    <property
+        name="IS_VISIBLE"
+        type="int"
+        column="IS_VISIBLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="IS_EDIT"
+        type="int"
+        column="IS_EDIT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="FIELD_VALUESET"
+        type="java.lang.String"
+        column="FIELD_VALUESET"
+        length="200"
+    />
+    <property
+        name="FIELD_DISPTYPE"
+        type="java.lang.Integer"
+        column="FIELD_DISPTYPE"
+        length="2"
+    />
+    <property
+        name="GROUP_NAME"
+        type="java.lang.String"
+        column="GROUP_NAME"
+        length="60"
+    />
+    <property
+        name="SET_ID"
+        type="java.lang.String"
+        column="SET_ID"
+        length="38"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysApp -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

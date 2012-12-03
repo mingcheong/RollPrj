@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ExcDataTypeReceiver" 
+    table="EXC_DATA_TYPE_RECEIVER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+<!--
+    <id
+        name="DATA_TYPE_CODE"
+        type="java.lang.String"
+        column="DATA_TYPE_CODE"
+    >
+        <generator class="assigned" />
+    </id>
+-->
+	<composite-id>
+		<key-property 
+			name="DATA_TYPE_CODE"
+			column="DATA_TYPE_CODE"
+			type="java.lang.String"
+			length="42"/>
+		<key-property 
+			name="RECEIVER_SYSTEM_CODE"
+			column="RECEIVER_SYSTEM_CODE"
+			type="java.lang.String"
+			length="42"/>
+		<key-property 
+			name="SET_YEAR"
+			type="int"
+			column="SET_YEAR"
+			length="4"/>
+	</composite-id>
+
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlBusVoucherDetail" 
+    table="GL_BUS_VOUCHER_DETAIL"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="LINE_ID"
+        type="java.lang.String"
+        column="LINE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="VOU_DETAIL_ID"
+        type="java.lang.String"
+        column="VOU_DETAIL_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="CCID"
+        type="java.lang.String"
+        column="CCID"
+        length="38"
+    />
+    <property
+        name="DS_ID"
+        type="java.lang.String"
+        column="DS_ID"
+        length="38"
+    />
+    <property
+        name="CS_ID"
+        type="java.lang.String"
+        column="CS_ID"
+        length="38"
+    />
+    <property
+        name="SUMMARY"
+        type="java.lang.String"
+        column="SUMMARY"
+        length="200"
+    />
+    <property
+        name="VOU_MONEY"
+        type="java.math.BigDecimal"
+        column="VOU_MONEY"
+        length="16"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="SET_MONTH"
+        type="java.lang.Integer"
+        column="SET_MONTH"
+        length="4"
+    />
+    <property
+        name="IS_BUSINCREASE"
+        type="java.lang.Integer"
+        column="IS_BUSINCREASE"
+        length="1"
+    />
+    <property
+        name="FROMCTRLID"
+        type="java.math.BigDecimal"
+        column="FROMCTRLID"
+        length="38"
+    />
+    <property
+        name="TOCTRLID"
+        type="java.math.BigDecimal"
+        column="TOCTRLID"
+        length="38"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="300"
+    />
+    <property
+        name="HEAD_ID"
+        type="java.lang.String"
+        column="HEAD_ID"
+        not-null="true"
+        length="38"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to EleAccountantSubject -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to EleAccountantSubject -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlBusVoucher -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlCcid -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

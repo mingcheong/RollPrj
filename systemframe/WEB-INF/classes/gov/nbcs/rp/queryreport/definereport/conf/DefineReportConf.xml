@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/configure.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="rp.defineReportService"
+		class="com.foundercy.pf.util.sessionmanager.CustomHttpInvokerProxyFactoryBean">
+		<property name="serviceUrl">
+			<value>${server.url}//defineReportHttpInvoker</value>
+		</property>
+		<property name="serviceInterface">
+			<value>
+				gov.nbcs.rp.queryreport.definereport.ibs.IDefineReport
+			</value>
+		</property>
+	</bean>
+
+</beans>

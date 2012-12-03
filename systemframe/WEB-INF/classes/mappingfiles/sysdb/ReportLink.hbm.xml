@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ReportLink" 
+    table="REPORT_LINK"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <composite-id>
+        <key-property 
+            name="linkId" 
+            column="LINK_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="linkName" 
+            column="LINK_NAME" 
+            type="java.lang.String"
+            length="200"
+        />
+        <key-property 
+            name="reportId" 
+            column="REPORT_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="linkStr" 
+            column="LINK_STR" 
+            type="java.sql.Clob"
+            length="4000"
+        />
+        <key-property 
+            name="enable" 
+            column="ENABLE" 
+            type="int"
+            length="1"
+        />
+        <key-property 
+            name="isSystem" 
+            column="IS_SYSTEM" 
+            type="java.lang.Integer"
+            length="1"
+        />
+        <key-property 
+            name="remark" 
+            column="REMARK" 
+            type="java.lang.String"
+            length="200"
+        />
+        <key-property 
+            name="ownerName" 
+            column="OWNER_NAME" 
+            type="java.lang.String"
+            length="42"
+        />
+        <key-property 
+            name="createDate" 
+            column="CREATE_DATE" 
+            type="java.sql.Timestamp"
+            length="7"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

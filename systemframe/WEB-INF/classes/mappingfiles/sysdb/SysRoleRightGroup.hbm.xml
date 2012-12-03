@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRoleRightGroup" 
+    table="SYS_ROLE_RIGHT_GROUP"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="ROLE_ID" 
+            column="ROLE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="RIGHT_GROUP_ID" 
+            column="RIGHT_GROUP_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+    </composite-id>    
+
+
+
+
+
+
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

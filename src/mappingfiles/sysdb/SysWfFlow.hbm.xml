@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfFlow" 
+    table="SYS_WF_FLOWS"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="WF_ID"
+        type="java.lang.String"
+        column="WF_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="WF_CODE"
+        type="java.lang.String"
+        column="WF_CODE"
+        not-null="true"
+        unique="true"
+        length="42"
+    />
+    <property
+        name="WF_NAME"
+        type="java.lang.String"
+        column="WF_NAME"
+        length="100"
+    />
+    <property
+        name="WF_TABLE_NAME"
+        type="java.lang.String"
+        column="WF_TABLE_NAME"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="ID_COLUMN_NAME"
+        type="java.lang.String"
+        column="ID_COLUMN_NAME"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="CONDITION_ID"
+        type="java.lang.String"
+        column="CONDITION_ID"
+        length="38"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    
+    <property
+        name="COA_ID"
+        type="java.lang.String"
+        column="COA_ID"
+        length="38"
+    />
+    
+    <property
+        name="RIGHT_CCID"
+        type="java.lang.String"
+        column="RIGHT_CCID"
+        length="1"
+    />
+    
+    <property
+        name="RIGHT_RCID"
+        type="java.lang.String"
+        column="RIGHT_RCID"
+        length="1"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

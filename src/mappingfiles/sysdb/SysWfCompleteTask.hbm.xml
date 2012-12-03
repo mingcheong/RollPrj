@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfCompleteTask" 
+    table="SYS_WF_COMPLETE_TASKS"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="TASK_ID"
+        type="java.lang.String"
+        column="TASK_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="WF_TABLE_NAME"
+        type="java.lang.String"
+        column="WF_TABLE_NAME"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="ENTITY_ID"
+        type="java.lang.String"
+        column="ENTITY_ID"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="WF_ID"
+        type="java.lang.String"
+        column="WF_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="CURRENT_NODE_ID"
+        type="int"
+        column="CURRENT_NODE_ID"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="PREVIOUS_NODE_ID"
+        type="int"
+        column="PREVIOUS_NODE_ID"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="TASK_STATUS"
+        type="java.lang.String"
+        column="TASK_STATUS"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="OPERATION_NAME"
+        type="java.lang.String"
+        column="OPERATION_NAME"
+        length="42"
+    />
+    <property
+        name="OPERATION_DATE"
+        type="java.lang.String"
+        column="OPERATION_DATE"
+        length="30"
+    />
+    <property
+        name="OPERATION_REMARK"
+        type="java.lang.String"
+        column="OPERATION_REMARK"
+        length="100"
+    />
+    <property
+        name="INIT_MONEY"
+        type="java.math.BigDecimal"
+        column="INIT_MONEY"
+        length="16"
+    />
+    <property
+        name="RESULT_MONEY"
+        type="java.math.BigDecimal"
+        column="RESULT_MONEY"
+        length="16"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="100"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

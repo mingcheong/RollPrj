@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysUiconfDetail" 
+    table="SYS_UICONF_DETAIL"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="UICONF_ID" 
+            column="UICONF_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="UICONF_FIELD" 
+            column="UICONF_FIELD" 
+            type="java.lang.String"
+            length="60"
+        />
+        <key-property 
+            name="UICONF_VALUE" 
+            column="UICONF_VALUE" 
+            type="java.lang.String"
+            length="3999"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysModule" 
+    table="SYS_MODULE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="MODULE_ID"
+        type="java.lang.String"
+        column="MODULE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="MODULE_CODE"
+        type="java.lang.String"
+        column="MODULE_CODE"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="MODULE_NAME"
+        type="java.lang.String"
+        column="MODULE_NAME"
+        length="60"
+    />
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        length="42"
+    />
+    <property
+        name="MODULE_TYPE"
+        type="int"
+        column="MODULE_TYPE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ENABLED"
+        type="int"
+        column="ENABLED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="DEFAULT_ICON"
+        type="java.lang.String"
+        column="DEFAULT_ICON"
+        length="100"
+    />
+    <property
+        name="TIPS"
+        type="java.lang.String"
+        column="TIPS"
+        length="100"
+    />
+    <property
+        name="CLASS_NAME"
+        type="java.lang.String"
+        column="CLASS_NAME"
+        length="200"
+    />
+    <property
+        name="FUNC_NAME"
+        type="java.lang.String"
+        column="FUNC_NAME"
+        length="60"
+    />
+    <property
+        name="PARAM"
+        type="java.lang.String"
+        column="PARAM"
+        length="200"
+    />
+    <property
+        name="BILL_TYPE_CODE"
+        type="java.lang.String"
+        column="BILL_TYPE_CODE"
+        length="60"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysApp -->
+    
+        
+    
+        
+    
+    <!-- bi-directional one-to-many association to SysMenuModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysModuleStatusButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysModuleStatus -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenuModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>
+

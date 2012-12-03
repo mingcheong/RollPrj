@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 
+		此文件定义上下文内容，各模块需各自按以下指定的文件名在各模块的src文件夹下维护、管理上下文内容。
+		此文件只作管理用途，不允许随意修改！
+	-->
+	<!--framework工程配置-->
+	<!-- 其他组件部分上下文-->
+	<!-- import resource="classpath:fasp-context.xml" /-->
+	<!-- 共用部分上下文 -->
+	<import resource="classpath:public-context.xml" />
+	<!-- 系统框架部分上下文 -->
+	<import resource="classpath:sysframe-context.xml" />
+	<!-- 功能权限组件部分上下文 -->
+	<import resource="classpath:functionright-context.xml" />
+	<!-- 安全认证组件部分上下文-->
+	<!--import resource="classpath:secure-context.xml" /-->
+
+	<!--util工程配置-->
+	<!-- LOG组件部分上下文-->
+	<import resource="classpath:log-context.xml" />
+
+	<!--dictionary工程配置-->
+	<!-- 数据字典部分上下文 -->
+	<import resource="classpath:dd-context.xml" />
+	<!-- COA组件部分上下文 -->
+	<import resource="classpath:coa-context.xml" />
+	<import resource="classpath:dictionaryframe-context.xml" />
+
+	<!--rule工程配置-->
+	<!-- 权限组件部分上下文 -->
+	<import resource="classpath:dataright-context.xml" />
+	<import resource="classpath:datarightframe-context.xml" />
+
+	<import resource="classpath:rule-context.xml" />
+	<import resource="classpath:ruleframe-context.xml" />
+
+	<!--gl工程配置-->
+	<!-- 界面配置组件部分上下文 -->
+	<import resource="classpath:uiconfigure-context.xml" />
+	<!-- 交易令组件部分上下文 -->
+	<import resource="classpath:busvou-context.xml" />
+	<!-- 交易凭证组件部分上下文 -->
+	<import resource="classpath:billtype-context.xml" />
+	<import resource="classpath:glframe-context.xml" />
+
+	<!--report工程配置-->
+	<!-- 报表引擎组件部分上下文-->
+	<import resource="classpath:reportengine-context.xml" />
+	<!-- 报表远程服务配置 -->
+	<import resource="classpath:reportcy-context.xml" />
+
+	<!--workflow工程配置-->
+	<!-- 工作流组件部分上下文 -->
+	<import resource="classpath:workflow-context.xml" />
+	<import resource="classpath:workflowframe-context.xml" />
+	<import resource="classpath:message-context.xml" />
+	
+	<!-- 计划系统远程服务配置 -->
+	<import resource="classpath:plan-context.xml"/>
+	<!-- 支付系统远程服务配置 -->
+	<import resource="classpath:pay-context.xml"/>
+
+	<!-- 滚动项目库服务配置-->
+	<import resource="classpath:rp-context.xml"/>
+
+	<!-- 总账服务配置-->
+	<import resource="classpath:gl-context.xml"/>
+
+	<!-- web seevice接口-->
+	<import resource="classpath:webService-context.xml" />
+
+	<!-- CA远程服务内容配置-->
+	<import resource="classpath:usercert-context.xml" />
+	
+    <!--接口管理-->
+	<import resource="classpath:serviceManage-context.xml" />
+
+	<!-- 离线服务配置-->
+	<import resource="classpath:offline-context.xml"/>
+	
+</beans>

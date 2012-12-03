@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlBusvouControl" 
+    table="GL_BUSVOU_CONTROL"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="VOU_CONTROL_ID"
+        type="java.lang.String"
+        column="VOU_CONTROL_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="VOU_TYPE_ID"
+        type="java.lang.String"
+        column="VOU_TYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="SUM_TYPE_ID"
+        type="java.lang.String"
+        column="SUM_TYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="AVI_PERCENT"
+        type="java.lang.Integer"
+        column="AVI_PERCENT"
+        length="4"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="CTRLLEVEL"
+        type="java.lang.Integer"
+        column="CTRLLEVEL"
+        length="1"
+    />
+    <property
+        name="IS_PRIMARYCONTROL"
+        type="java.lang.Integer"
+        column="IS_PRIMARYCONTROL"
+        length="1"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlSumType -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlBusvouType -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

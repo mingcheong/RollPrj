@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Feb 01 14:28:50 CST 2010
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=budget.jar
+manifest.mergeall=true
+manifest.mainclass=com.foundercy.pf.framework.MainApp
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|activation.jar>;<jar|javax.servlet.jar>;<jar|javax.servlet.jsp.jar>;<jar|jboss-j2ee.jar>;<jar|jboss-jaxrpc.jar>;<jar|jboss-jsr77.jar>;<jar|jboss-saaj.jar>;<jar|mail.jar>;<jar|namespace.jar>;<jar|xml-apis.jar>;<jar|xml-apis-1.0.b2.jar>;<jar|acegi-security-1.0.1.jar>;<jar|alloy.jar>;<jar|ant-antlr-1.6.2.jar>;<jar|antlr-2.7.5H3.jar>;<jar|aopalliance.jar>;<jar|asm.jar>;<jar|asm-attrs.jar>;<jar|bcprov-jdk14-131.jar>;<jar|c3p0-0.8.5.jar>;<jar|cglib-2.1.2.jar>;<jar|cglib-nodep-2.1_2.jar>;<jar|classes12.jar>;<jar|commons-beanutils.jar>;<jar|commons-codec.jar>;<jar|commons-dbcp.jar>;<jar|commons-httpclient-2.0.jar>;<jar|commons-lang.jar>;<jar|commons-logging-1.0.4.jar>;<jar|commons-pool.jar>;<jar|db2java.jar>;<jar|dom4j-1.6.jar>;<jar|drools-all-2.0.jar>;<jar|ehcache-1.1.jar>;<jar|fasp.jar>;<jar|forms-1.0.4.jar>;<jar|hessian-3.0.13.jar>;<jar|hibernate2.jar>;<jar|hibernate3.jar>;<jar|j2ee.jar>;<jar|jai_codec.jar>;<jar|jai_core.jar>;<jar|jakarta-oro-2.0.8.jar>;<jar|janino-2.3.2.jar>;<jar|javaws.jar>;<jar|jaxp.jar>;<jar|jbcl.jar>;<jar|jcommon.jar>;<jar|jface.jar>;<jar|jfreechart.jar>;<jar|jqwebcom.jar>;<jar|jta.jar>;<jar|jug.jar>;<jar|junit-3.8.1.jar>;<jar|jxl.jar>;<jar|log4j-1.2.12.jar>;<jar|lookandfeel.jar>;<jar|odmg-3.0.jar>;<jar|ojdbc14.jar>;<jar|oscache-2.1.jar>;<jar|parser.jar>;<jar|platform.jar>;<jar|poi-2.5.1-final-20040804.jar>;<jar|report3_5_5.jar>;<jar|reportserver.jar>;<jar|runtime.jar>;<jar|servlet.jar>;<jar|spring.jar>;<jar|spring_src.jar>;<jar|spring-mock.jar>;<jar|swt.jar>;<jar|tools.jar>;<jar|weblogic.jar>;<jar|xerces.jar>
+includes=

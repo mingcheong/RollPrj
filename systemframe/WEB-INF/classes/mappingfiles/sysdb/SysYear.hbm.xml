@@ -1,0 +1,802 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysYear" 
+    table="SYS_YEAR"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="SET_YEAR"
+        type="java.lang.Integer"
+        column="SET_YEAR"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="YEAR_NAME"
+        type="java.lang.String"
+        column="YEAR_NAME"
+        length="42"
+    />
+    <property
+        name="ENABLED"
+        type="int"
+        column="ENABLED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="INIT_FLAG"
+        type="int"
+        column="INIT_FLAG"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="START_DATE"
+        type="java.lang.String"
+        column="START_DATE"
+        length="20"
+    />
+    <property
+        name="END_DATE"
+        type="java.lang.String"
+        column="END_DATE"
+        length="20"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+   <property
+        name="YEAR_STATUS"
+        type="java.lang.String"
+        column="YEAR_STATUS"
+        not-null="false"
+        length="1"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to EleBudgetKind -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRelationManager -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to ElePayeeAccount -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to ElePlanAdjust -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to ElePayoffKind -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetLabel -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleMoneyKind -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleAccount -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenu -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenuButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysSession -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetSubject -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysElement -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetSubjectItem -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetItem -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysSynRightType -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetTarget -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysBillnorule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysEnumerate -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetSubjectIncome -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBank -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBookSet -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleManageBranch -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleOther -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleSummary -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetAdjust -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleControltype -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysDatabase -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetCategory -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleIncomepaymanage -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleRegion -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleIncomeItem -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to ElePayAdjust -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleDepartment -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleEditor -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleFileNo -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleEnterprise -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysBillnoruleline -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleCurrent -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysMetadata -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysSynRightDetail -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleGovItem -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetPurpose -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysNavigate -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleAccountantSubject -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysSynmanager -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleForeignMoney -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleUnitNum -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysUserRole -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleEnAccountantSubject -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenuModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysBillno -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysTablemanager -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRelation -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetItemSummary -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRole -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleBudgetOrigin -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to EleGovPaypatten -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to ElePayMode -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>
+

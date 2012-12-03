@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysSynmanager" 
+    table="SYS_SYNMANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="GUID"
+        type="java.lang.String"
+        column="GUID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="TABLE_TYPE"
+        type="int"
+        column="TABLE_TYPE"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="TABLE_NAME"
+        type="java.lang.String"
+        column="TABLE_NAME"
+        length="60"
+    />
+    <property
+        name="SYN_USER"
+        type="java.lang.String"
+        column="SYN_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="SYN_TIME"
+        type="java.lang.String"
+        column="SYN_TIME"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

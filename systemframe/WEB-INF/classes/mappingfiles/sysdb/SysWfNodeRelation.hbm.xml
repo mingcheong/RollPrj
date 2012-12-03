@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfNodeRelation" 
+    table="SYS_WF_NODE_RELATIONS"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"    
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="WF_ID" 
+            column="WF_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="NODE_ID" 
+            column="NODE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="NEXT_NODE_ID" 
+            column="NEXT_NODE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="RELATION_TYPE" 
+            column="RELATION_TYPE" 
+            type="java.lang.String"
+            length="10"
+        />
+    </composite-id>    
+
+
+
+
+
+
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

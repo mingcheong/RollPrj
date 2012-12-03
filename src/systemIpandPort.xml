@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="UserCertProperty" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"><value>/WEB-INF/classes/sysapp.properties</value></property>
+	</bean>
+	
+	<bean id="web.pendingWork" 
+		class="com.foundercy.pf.framework.webservices.pendingwork.PendingWorkWebService">
+		<property name="ipAndPort">
+			<value>132.147.33.34:9000</value>
+		</property>
+	</bean>	
+	
+	<bean id="web.sidCheck"
+		class="com.foundercy.pf.framework.webservices.sidcheck.SsoCheckLocator">
+		<property name="ssoCheckSoap_address">
+			<!-- portal 门户 配置
+			<value>http://211.71.34.89:7001/portal/services/ssoCheckSoap</value>
+			-->
+			<!-- ibm 内网门户配置 -->
+			<!-- 
+			<value>http://144.24.22.54:7005/NBCSPortalWeb/gov/nbcs/portal/Interface/ssoCheck.jws</value>
+			-->
+			<value>${web.sidcheck.address}</value>
+		</property>
+	</bean>
+	<bean id="web.document" class="com.foundercy.pf.framework.webservices.financialdocinterfacecontract.FinancialDocInterfaceLocator">
+		<property name="financialDocInterfaceSoap_address">
+			<value>http://144.24.22.43:7001/NBCSPortalWeb/gov/nbcs/portal/Interface/FinancialDocInterface.jws </value>
+		</property>
+	</bean>
+	<bean id="web.usermsgsyn">
+		<property name="userInfoSoap_address">
+			<value>http://144.24.22.54:7001/sam/com/userInfo.jws</value>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.1
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="mappingfiles.sysdb.SysUsermanage"
+		table="SYS_USERMANAGE" lazy="false" dynamic-update="true"
+		dynamic-insert="true">
+
+		<id name="USER_ID" type="java.lang.String" column="USER_ID">
+			<generator class="assigned" />
+		</id>
+
+
+
+		<property name="USER_CODE" type="java.lang.String"
+			column="USER_CODE" not-null="true" length="42" />
+		<property name="USER_NAME" type="java.lang.String"
+			column="USER_NAME" length="60" />
+		<property name="PASSWORD" type="java.lang.String"
+			column="PASSWORD" length="60" />
+		<property name="ORG_TYPE" type="java.lang.String"
+			column="ORG_TYPE" not-null="true" length="42" />
+		<property name="ORG_CODE" type="java.lang.String"
+			column="ORG_CODE" length="42" />
+		<property name="LEVEL_NUM" type="int" column="LEVEL_NUM"
+			not-null="true" length="2" />
+		<property name="IS_LEAF" type="java.lang.Integer"
+			column="IS_LEAF" length="1" />
+		<property name="GENDER" type="java.lang.Integer" column="GENDER"
+			length="1" />
+		<property name="TELEPHONE" type="java.lang.String"
+			column="TELEPHONE" length="60" />
+		<property name="MOBILE" type="java.lang.String" column="MOBILE"
+			length="60" />
+		<property name="ENABLED" type="int" column="ENABLED"
+			not-null="true" length="1" />
+		<property name="HEADSHIP_CODE" type="java.lang.String"
+			column="HEADSHIP_CODE" length="42" />
+		<property name="BIRTHDAY" type="java.lang.String"
+			column="BIRTHDAY" length="10" />
+		<property name="ADDRESS" type="java.lang.String"
+			column="ADDRESS" length="60" />
+		<property name="EMAIL" type="java.lang.String" column="EMAIL"
+			length="60" />
+		<property name="USER_TYPE" type="int" column="USER_TYPE"
+			not-null="true" length="3" />
+		<property name="IS_AUDIT" type="int" column="IS_AUDIT"
+			not-null="true" length="1" />
+		<property name="AUDIT_DATE" type="java.lang.String"
+			column="AUDIT_DATE" length="30" />
+		<property name="AUDIT_USER" type="java.lang.String"
+			column="AUDIT_USER" length="42" />
+		<property name="NICKNAME" type="java.lang.String"
+			column="NICKNAME" length="42" />
+		<property name="LAST_VER" type="java.lang.String"
+			column="LAST_VER" length="30" />
+		<property name="MB_ID" type="java.lang.String" column="MB_ID"
+			length="38" />
+		<property name="BELONG_ORG" type="java.lang.String"
+			column="BELONG_ORG" length="38" />
+
+		<property name="BELONG_TYPE" type="java.lang.String"
+			column="BELONG_TYPE" length="38" />
+		<property name="SECURITY_LEVEL" type="java.lang.Integer"
+			column="SECURITY_LEVEL" not-null="true" length="1" />
+		<!-- Associations -->
+
+
+	</class>
+</hibernate-mapping>
+

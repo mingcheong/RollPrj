@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysApp" 
+    table="SYS_APP"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SYS_NAME"
+        type="java.lang.String"
+        column="SYS_NAME"
+        length="60"
+    />
+    <property
+        name="SYS_DESC"
+        type="java.lang.String"
+        column="SYS_DESC"
+        length="200"
+    />
+    <property
+        name="ENABLED"
+        type="int"
+        column="ENABLED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="VERSION"
+        type="java.lang.String"
+        column="VERSION"
+        length="40"
+    />
+    <property
+        name="DEPLOY_IP"
+        type="java.lang.String"
+        column="DEPLOY_IP"
+        length="20"
+    />
+    <property
+        name="DEPLOY_PORT"
+        type="java.lang.String"
+        column="DEPLOY_PORT"
+        length="20"
+    />
+    <property
+        name="DEPLOY_FOLDER"
+        type="java.lang.String"
+        column="DEPLOY_FOLDER"
+        length="40"
+    />
+    <property
+        name="DOWNLOAD_SERVLET"
+        type="java.lang.String"
+        column="DOWNLOAD_SERVLET"
+        length="40"
+    />
+    <property
+        name="IS_LOCAL"
+        type="java.lang.Integer"
+        column="IS_LOCAL"
+        length="1"
+    />
+    <property
+        name="IS_DSTORE"
+        type="java.lang.Integer"
+        column="IS_DSTORE"
+        length="1"
+    />
+    <property
+        name="ORG_TYPE"
+        type="java.lang.String"
+        column="ORG_TYPE"
+        length="42"
+    />
+    <property
+        name="WELCOME_IMG"
+        type="java.lang.String"
+        column="WELCOME_IMG"
+        length="150"
+    />
+    <property
+        name="IS_OFFLINE"
+        type="java.lang.Integer"
+        column="IS_OFFLINE"
+        length="1"
+    />
+    <property
+        name="APPLICATION_HANDLE"
+        type="java.lang.String"
+        column="APPLICATION_HANDLE"
+        length="100"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+    <property
+        name="SYS_YEAR"
+        type="java.lang.String"
+        column="SYS_YEAR"
+        length="4"
+    />
+
+    <property
+        name="JAR_NAMES"
+        type="java.lang.String"
+        column="JAR_NAMES"
+        length="1000"
+    />
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SysMenu -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysSession -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysUserpara -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRole -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>
+

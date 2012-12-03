@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfNode" 
+    table="SYS_WF_NODES"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"    
+>
+
+    <id
+        name="NODE_ID"
+        type="java.lang.String"
+        column="NODE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="WF_ID"
+        type="java.lang.String"
+        column="WF_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="NODE_CODE"
+        type="java.lang.String"
+        column="NODE_CODE"
+        length="42"
+    />
+    <property
+        name="NODE_NAME"
+        type="java.lang.String"
+        column="NODE_NAME"
+        length="100"
+    />
+    <property
+        name="NODE_TYPE"
+        type="java.lang.String"
+        column="NODE_TYPE"
+        length="10"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="WF_TABLE_NAME"
+        type="java.lang.String"
+        column="WF_TABLE_NAME"
+        length="38"
+    />
+    <property
+        name="GATHER_FLAG"
+        type="int"
+        column="GATHER_FLAG"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ID_COLUMN_NAME"
+        type="java.lang.String"
+        column="ID_COLUMN_NAME"
+        length="38"
+    />
+    <property
+        name="OUTER_TABLE_NAME"
+        type="java.lang.String"
+        column="OUTER_TABLE_NAME"
+        length="38"
+    />
+    <property
+        name="OUTER_COLUMN_NAME"
+        type="java.lang.String"
+        column="OUTER_COLUMN_NAME"
+        length="38"
+    />  
+    <property
+        name="RELATION_COLUMN_NAME"
+        type="java.lang.String"
+        column="RELATION_COLUMN_NAME"
+        length="38"
+    />      
+    
+    <property
+        name="SEND_MSG_FLAG"
+        type="int"
+        column="SEND_MSG_FLAG"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="SEND_MSG_TIME"
+        type="int"
+        column="SEND_MSG_TIME"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="SEND_MSG_TIME_UNIT"
+        type="int"
+        column="SEND_MSG_TIME_UNIT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="AUTO_AUDIT_FLAG"
+        type="int"
+        column="AUTO_AUDIT_FLAG"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="AUTO_AUDIT_TIME"
+        type="int"
+        column="AUTO_AUDIT_TIME"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="AUTO_AUDIT_TIME_UNIT"
+        type="int"
+        column="AUTO_AUDIT_TIME_UNIT"
+        not-null="true"
+        length="1"
+    />
+    
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

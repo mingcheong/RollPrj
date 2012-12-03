@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+	此文件定义预算编审系统的所有远程端口的客户端Bean 
+-->
+<beans>
+	<!-- 
+		<import resource="classpath:gov/nbcs/rp/basinfo/basInfoScheme/basinfochsitem/conf/BasicInfoSelectedConf.xml" />
+		<import resource="classpath:gov/nbcs/rp/basinfo/basInfoScheme/basInfoChsRalation/conf/ChooseRelConf.xml" />
+		<import resource="classpath:gov/nbcs/rp/basinfo/basInfoScheme/basInputControl/conf/InputControlConf.xml" />
+	
+	<import resource="classpath:gov/nbcs/rp/basinfo/basInputTable/conf/BasInputTableConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/basinfo/basImport/conf/ImportConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prj/prjinput/conf/prjInputConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prj/prjmanage/conf/prjManageConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/common/pubinterface/conf/pubConf.xml" />
+	-->
+	<import resource="classpath:gov/nbcs/rp/queryreport/qrbudget/conf/QrBudgetConf.xml" />
+	
+	<import resource="classpath:gov/nbcs/rp/queryreport/szzbset/conf/SzzbSetConf.xml" />
+	
+	<!-- <import resource="classpath:gov/nbcs/rp/divpayoutCF/conf/DivPayoutCFConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/basinfo/basinfoedit/conf/AuditConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/audit/conf/auditReportConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/sysstachange/conf/SysStaChangeConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/transmit/conf/TransmitConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sendincept/conf/SendInceptConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/wfinterface/conf/wfConf.xml" />	
+	<import resource="classpath:gov/nbcs/rp/common/datactrl/conf/datactrlConf.xml" />
+	
+    <import resource="classpath:gov/nbcs/rp/redit/conf/reditConf.xml" />
+    -->
+	<import resource="classpath:gov/nbcs/rp/sys/usertoreport/conf/U2ReportConf.xml" />
+	
+	<import resource="classpath:gov/nbcs/rp/common/export/conf/ExportConf.xml" />
+    <import resource="classpath:gov/nbcs/rp/common/print/conf/PrintConf.xml" />
+	<!--
+	<import resource="classpath:gov/nbcs/rp/dss/dssinput/conf/DssInputConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/deptodiv/conf/DeptToDivConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dss/qrbudget/conf/DssQrBudgetConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/standardkind/conf/standardKindConf.xml" />
+   <import resource="classpath:gov/nbcs/rp/queryreport/tableSource/conf/TableSourceConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/raeflowset/conf/RaeflowSet.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/prjmain/conf/PrjMainConf.xml" />
+   <import resource="classpath:gov/nbcs/rp/dicinfo/prjmain/conf/PrjMainConf.xml" /> 
+	<import resource="classpath:gov/nbcs/rp/queryreport/definereport/conf/DefineReportConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/queryreport/rowset/conf/RowSetConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/prjdivstd/conf/PrjDivStdConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/prjstate/conf/PrjStateConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dss/ration/rationinput/conf/rationInputConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dss/ration/rationanalyze/conf/rationAnalyzeConf.xml" />
+	
+	-->
+	<import resource="classpath:gov/nbcs/rp/dicinfo/datadict/conf/dataDictConf.xml" />
+	<!-- <import resource="classpath:gov/nbcs/rp/querypolicy/conf/policyConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/prjinputcontrol/conf/PrjInputControlConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/option/conf/OptionConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/prjstaterelation/conf/PrjStateRelationConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/dicinfo/div2inc/conf/Div2IncConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/offline/schemeset/conf/schemeConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/calc/conf/calcConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/basinfo/common/conf/BaseCommonConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/scriptConsole/conf/ScriptConsoleConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/sysiaestru/conf/SysIaeStruConf.xml" />
+	-->
+	<import resource="classpath:gov/nbcs/rp/sys/sysrefcol/conf/SysRefColConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prjsync/conf/PrjSyncConf.xml" />
+	<!-- 
+	<import resource="classpath:gov/nbcs/rp/divpayoutcontrol/conf/DivPayoutSZConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/basinfo/basCheckRule/conf/CheckRuleConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/basinfo/strucManage/conf/StrucVerManageConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/sys/budRC/conf/BudRCConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/redit/njlock/conf/reditLockConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prjappr/conf/PrjApprConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/redit/wuxi/monthsep/conf/MonthSeparateConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prj/prjaudit/conf/PrjAuditConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/common/auditOpinion/conf/OpinionConf.xml" />
+	<import resource="classpath:gov/nbcs/rp/prj/nanjing/prjinput/conf/prjInputConf.xml" />-->
+
+</beans>

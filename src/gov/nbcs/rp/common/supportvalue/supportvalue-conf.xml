@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 仅需要在客户端“实时”取值的系统参数，客户端默认为“缓存”取值 -->
+	<bean id="rp.client-realtime-supportvalues"
+		class="java.util.ArrayList">
+		<constructor-arg>
+			<!-- 对应fb_s_support表中的SUPTYPE字段，要求以大写字母书写 -->
+			<list>
+				<value>EDITSTRULOCK</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<!-- 仅需要在服务端“缓存”取值的系统参数，服务端默认为“实时”取值 -->
+	<bean id="rp.server-cached-supportvalues"
+		class="java.util.ArrayList">
+		<constructor-arg>
+			<!-- 对应fb_s_support表中的SUPTYPE字段，要求以大写字母书写 -->
+			<list></list>
+		</constructor-arg>
+	</bean>
+</beans>

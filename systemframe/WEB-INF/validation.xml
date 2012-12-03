@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<form-validation>
+
+	<global>
+		<constant>
+			<constant-name>phone</constant-name>
+			<constant-value>^\d{8}\d*$</constant-value>
+		</constant>
+	</global>
+	
+	<formset>
+		<form name="LoginForm">
+			<field property="user_code" depends="required,mask,minlength">
+				<arg0 key="web.phone"/>	
+				<arg1 name="minlength" key="${var:minlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>8</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+
+</form-validation>

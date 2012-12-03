@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping default-lazy="false">
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysOffLineVersionManager" 
+    table="SYS_OFFLINE_VERSION_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="VERSION_ID"
+        type="java.lang.String"
+        column="VERSION_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="VERSION_CODE"
+        type="java.lang.String"
+        column="VERSION_CODE"
+        length="42"
+    />
+    <property
+        name="VERSION_NAME"
+        type="java.lang.String"
+        column="VERSION_NAME"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="VERSION_URL"
+        type="java.lang.String"
+        column="VERSION_URL"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="LAST_VER_NUM"
+        type="java.lang.Long"
+        column="LAST_VER_NUM"
+        length="10"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysMenu -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

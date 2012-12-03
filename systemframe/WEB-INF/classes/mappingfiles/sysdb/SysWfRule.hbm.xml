@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 3.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfRule" 
+    table="SYS_WF_RULE"
+    lazy="false"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="WF_ID" 
+            column="WF_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="RULE_ID" 
+            column="RULE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+    </composite-id>    
+
+
+
+
+
+
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysBilltypeAssele" 
+    table="SYS_BILLTYPE_ASSELE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="ASSELE_ID"
+        type="java.lang.String"
+        column="ASSELE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="BILLTYPE_ID"
+        type="java.lang.String"
+        column="BILLTYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="ELE_CODE"
+        type="java.lang.String"
+        column="ELE_CODE"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="LEVEL_NUM"
+        type="java.lang.Integer"
+        column="LEVEL_NUM"
+        length="2"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysBilltype -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

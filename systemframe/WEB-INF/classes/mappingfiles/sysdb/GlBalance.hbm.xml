@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlBalance" 
+    table="GL_BALANCE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="SUM_ID"
+        type="java.lang.String"
+        column="SUM_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SUM_TYPE_ID"
+        type="java.lang.String"
+        column="SUM_TYPE_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="SET_MONTH"
+        type="int"
+        column="SET_MONTH"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="CCID"
+        type="java.lang.String"
+        column="CCID"
+        length="38"
+    />
+    <property
+        name="AVI_MONEY"
+        type="java.math.BigDecimal"
+        column="AVI_MONEY"
+        length="16"
+    />
+    <property
+        name="USE_MONEY"
+        type="java.math.BigDecimal"
+        column="USE_MONEY"
+        length="16"
+    />
+    <property
+        name="MINUS_MONEY"
+        type="java.math.BigDecimal"
+        column="MINUS_MONEY"
+        length="16"
+    />
+    <property
+        name="AVING_MONEY"
+        type="java.math.BigDecimal"
+        column="AVING_MONEY"
+        length="16"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="RCID"
+        type="java.lang.String"
+        column="RCID"
+        length="38"
+    />
+    <property
+        name="FROMCTRLID"
+        type="java.lang.String"
+        column="FROMCTRLID"
+        length="38"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysUsermanage -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysUsermanage -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlSumType -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlCcid -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

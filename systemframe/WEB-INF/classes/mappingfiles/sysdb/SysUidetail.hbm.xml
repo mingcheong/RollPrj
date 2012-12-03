@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysUidetail" 
+    table="SYS_UIDETAIL"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="UI_DETAIL_ID"
+        type="java.lang.String"
+        column="UI_DETAIL_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="UI_ID"
+        type="java.lang.String"
+        column="UI_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="FIELD_NAME"
+        type="java.lang.String"
+        column="FIELD_NAME"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="DISP_MODE"
+        type="java.lang.String"
+        column="DISP_MODE"
+        length="20"
+    />
+    <property
+        name="IS_NESSARY"
+        type="int"
+        column="IS_NESSARY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="IS_ENABLED"
+        type="int"
+        column="IS_ENABLED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="FIELD_INDEX"
+        type="long"
+        column="FIELD_INDEX"
+        not-null="true"
+        length="10"
+    />
+    <property
+        name="ID"
+        type="java.lang.String"
+        column="ID"
+        length="60"
+    />
+    <property
+        name="TITLE"
+        type="java.lang.String"
+        column="TITLE"
+        length="60"
+    />
+    <property
+        name="COLS"
+        type="java.lang.Integer"
+        column="COLS"
+        length="3"
+    />
+    <property
+        name="VISIBLE"
+        type="java.lang.String"
+        column="VISIBLE"
+        length="10"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.String"
+        column="ENABLED"
+        length="10"
+    />    
+    <property
+        name="EDITABLE"
+        type="java.lang.String"
+        column="EDITABLE"
+        length="10"
+    />
+    <property
+        name="VALUE"
+        type="java.lang.String"
+        column="VALUE"
+        length="60"
+    />
+    <property
+        name="REF_MODEL"
+        type="java.lang.String"
+        column="REF_MODEL"
+        length="200"
+    />
+    <property
+        name="SOURCE"
+        type="java.lang.String"
+        column="SOURCE"
+        length="60"
+    />
+    <property
+        name="WIDTH"
+        type="java.lang.Integer"
+        column="WIDTH"
+        length="3"
+    />
+    <property
+        name="IS_MUST_INPUT"
+        type="java.lang.String"
+        column="IS_MUST_INPUT"
+        length="10"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="QUERY_RELATION_SIGN"
+        type="java.lang.String"
+        column="QUERY_RELATION_SIGN"
+        length="1"
+    />
+
+    <property
+        name="DETAIL_TYPE"
+        type="java.lang.Integer"
+        column="DETAIL_TYPE"
+        length="1"
+    />
+    
+    <property
+        name="PARENT_ID"
+        type="java.lang.String"
+        column="PARENT_ID"
+        length="38"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="GBK"?>
+<panel id='panel_container' heightReadjustable='true'>
+	<split id='split' resizeWeight='0.2' heightReadjustable='true'
+		rows='12'>
+		<!-- split id='split_left' resizeWeight='0.6' orientation="0"
+			heightReadjustable='true'>
+			<tree id='tree_en' root="预算单位" isCheck="true" />
+			<tree id='tree_rpt' root="报表" />
+			</split -->
+		<tree id='tree_rpt' root="报表" />
+		<panel id="pnl_rpt" columns="30" rows="10"
+			heightReadjustable='true'>
+			<label cols="30" rows="1" text="在左侧树中，选择单位和报表" />
+		</panel>
+	</split>
+</panel>

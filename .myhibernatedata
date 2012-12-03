@@ -1,0 +1,22 @@
+#
+#Wed May 04 16:23:07 CST 2011
+genBasicCompId=false
+sessionFactoryName=
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=<no jars/zips in selected libraries>
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/RollPrj/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true

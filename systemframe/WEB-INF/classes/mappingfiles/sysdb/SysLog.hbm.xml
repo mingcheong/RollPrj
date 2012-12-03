@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysLog" 
+    table="SYS_LOG"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="LOG_TYPE"
+        type="java.lang.String"
+        column="LOG_TYPE"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="LOG_TYPENAME"
+        type="java.lang.String"
+        column="LOG_TYPENAME"
+        length="60"
+    />
+    <property
+        name="IS_DEFALUTLOG"
+        type="java.lang.Integer"
+        column="IS_DEFALUTLOG"
+        length="1"
+    />
+    <property
+        name="SEARCHLOGCLASS"
+        type="java.lang.String"
+        column="SEARCHLOGCLASS"
+        length="100"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SysLoginfo -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>
+

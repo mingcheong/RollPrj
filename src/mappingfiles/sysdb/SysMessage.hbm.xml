@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysMessage" 
+    table="SYS_MESSAGE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="MSG_ID"
+        type="java.lang.String"
+        column="MSG_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="MSG_TITLE"
+        type="java.lang.String"
+        column="MSG_TITLE"
+        length="200"
+    />
+    <property
+        name="MSG_CONTENT"
+        type="java.lang.String"
+        column="MSG_CONTENT"
+        length="3999"
+    />
+    <property
+        name="MSG_TYPE_CODE"
+        type="java.lang.Integer"
+        column="MSG_TYPE_CODE"
+        length="1"
+    />
+    <property
+        name="USER_ID"
+        type="java.lang.String"
+        column="USER_ID"
+        length="40"
+    />
+    <property
+        name="ROLE_ID"
+        type="java.lang.String"
+        column="ROLE_ID"
+        length="40"
+    />
+    <property
+        name="MODULE_ID"
+        type="java.lang.String"
+        column="MODULE_ID"
+        length="38"
+    />
+    <property
+        name="PARA_STRING"
+        type="java.lang.String"
+        column="PARA_STRING"
+        length="200"
+    />
+    <property
+        name="SEND_TYPE"
+        type="java.lang.Integer"
+        column="SEND_TYPE"
+        length="1"
+    />
+    <property
+        name="IS_TEMP"
+        type="java.lang.Integer"
+        column="IS_TEMP"
+        length="1"
+    />
+    <property
+        name="IS_RELATEROLE"
+        type="java.lang.Integer"
+        column="IS_RELATEROLE"
+        length="1"
+    />
+    
+    <property
+        name="IS_SEND"
+        type="java.lang.Integer"
+        column="IS_SEND"
+        length="1"
+    />
+    <property
+        name="IS_RECEIVE"
+        type="java.lang.Integer"
+        column="IS_RECEIVE"
+        length="1"
+    />
+    <property
+        name="SEND_NUM"
+        type="java.lang.Integer"
+        column="SEND_NUM"
+        length="3"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="CANCEL_RELATION_ID"
+        type="java.lang.String"
+        column="CANCEL_RELATION_ID"
+        length="38"
+    />
+    <property
+        name="FROMUSER"
+        type="java.lang.String"
+        column="FROMUSER"
+        length="40"
+    />
+    <property
+        name="SENT_TIME"
+        type="java.lang.String"
+        column="SENT_TIME"
+        length="30"
+    />
+    <property
+        name="RECEIVE_TIME"
+        type="java.lang.String"
+        column="RECEIVE_TIME"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

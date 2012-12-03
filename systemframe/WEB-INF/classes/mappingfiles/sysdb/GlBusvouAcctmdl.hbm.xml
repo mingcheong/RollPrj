@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlBusvouAcctmdl" 
+    table="GL_BUSVOU_ACCTMDL"
+    lazy="false"
+>
+
+    <id
+        name="ACCTMDL_ID"
+        type="java.lang.String"
+        column="ACCTMDL_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="VOU_TYPE_ID"
+        type="java.lang.String"
+        column="VOU_TYPE_ID"
+        length="38"
+    />
+    <property
+        name="ACCTMDL_CODE"
+        type="java.lang.String"
+        column="ACCTMDL_CODE"
+        length="42"
+    />
+    <property
+        name="ACCTMDL_NAME"
+        type="java.lang.String"
+        column="ACCTMDL_NAME"
+        length="60"
+    />
+    <property
+        name="ST_ID"
+        type="java.lang.String"
+        column="ST_ID"
+        length="38"
+    />
+    <property
+        name="DEFINE_ID"
+        type="java.lang.String"
+        column="DEFINE_ID"
+        length="38"
+    />
+    <property
+        name="DS_ID"
+        type="java.lang.String"
+        column="DS_ID"
+        length="38"
+    />
+    <property
+        name="DS_SUMMARY"
+        type="java.lang.String"
+        column="DS_SUMMARY"
+        length="200"
+    />
+    <property
+        name="CS_ID"
+        type="java.lang.String"
+        column="CS_ID"
+        length="38"
+    />
+    <property
+        name="CS_SUMMARY"
+        type="java.lang.String"
+        column="CS_SUMMARY"
+        length="200"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="38"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to GlBusvouAcctmdlRule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>

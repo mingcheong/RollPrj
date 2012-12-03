@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRule" 
+    table="SYS_RULE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="RULE_ID"
+        type="java.lang.String"
+        column="RULE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="RULE_CODE"
+        type="java.lang.String"
+        column="RULE_CODE"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="RULE_NAME"
+        type="java.lang.String"
+        column="RULE_NAME"
+        length="60"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="RULE_CLASSIFY"
+        type="java.lang.String"
+        column="RULE_CLASSIFY"
+        length="10"
+    />
+    <property
+        name="SYS_REMARK"
+        type="java.lang.String"
+        column="SYS_REMARK"
+        length="200"
+    />
+    <property
+        name="RIGHT_TYPE"
+        type="java.lang.Integer"
+        column="RIGHT_TYPE"
+        length="1"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

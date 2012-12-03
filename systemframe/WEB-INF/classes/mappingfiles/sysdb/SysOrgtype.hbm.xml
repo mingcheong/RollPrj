@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysOrgtype" 
+    table="SYS_ORGTYPE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="ORGTYPE_CODE"
+        type="java.lang.String"
+        column="ORGTYPE_CODE"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="ORGTYPE_NAME"
+        type="java.lang.String"
+        column="ORGTYPE_NAME"
+        length="60"
+    />
+    <property
+        name="ELE_CODE"
+        type="java.lang.String"
+        column="ELE_CODE"
+        length="42"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

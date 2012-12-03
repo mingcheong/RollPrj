@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysMenuModule" 
+    table="SYS_MENU_MODULE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="MENU_ID" 
+            column="MENU_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="MODULE_ID" 
+            column="MODULE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="DISPLAY_ORDER"
+        type="int"
+        column="DISPLAY_ORDER"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="DISPLAY_TITLE"
+        type="java.lang.String"
+        column="DISPLAY_TITLE"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to SysMenu -->
+    
+    	
+	
+	
+    <!-- bi-directional many-to-one association to SysModule -->
+    
+    	
+	
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysDatabase" 
+    table="SYS_DATABASE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="CHR_ID"
+        type="java.lang.String"
+        column="CHR_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="INT_DBTYPE"
+        type="java.lang.Integer"
+        column="INT_DBTYPE"
+        length="2"
+    />
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="IS_DSTORE"
+        type="int"
+        column="IS_DSTORE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="DB_NAME"
+        type="java.lang.String"
+        column="DB_NAME"
+        length="42"
+    />
+    <property
+        name="DB_USER"
+        type="java.lang.String"
+        column="DB_USER"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="DB_PWD"
+        type="java.lang.String"
+        column="DB_PWD"
+        length="60"
+    />
+    <property
+        name="DB_HOST"
+        type="java.lang.String"
+        column="DB_HOST"
+        length="42"
+    />
+    <property
+        name="DB_PORT"
+        type="java.lang.String"
+        column="DB_PORT"
+        length="10"
+    />
+    <property
+        name="DB_VERSION"
+        type="java.lang.String"
+        column="DB_VERSION"
+        length="60"
+    />
+    <property
+        name="MAX_POOL_SIZE"
+        type="int"
+        column="MAX_POOL_SIZE"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="POOL_NAME"
+        type="java.lang.String"
+        column="POOL_NAME"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="RG_CODE"
+        type="java.lang.String"
+        column="RG_CODE"
+        length="42"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

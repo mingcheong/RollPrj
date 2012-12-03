@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="RollPrj"
+  id="myeclipse.1168593430264"
+  context-root="/systemframe"
+  j2ee-spec="1.4"
+  archive="RollPrj.war">
+  <attributes>
+    <attribute name="webrootdir" value="systemframe" />
+  </attributes>
+</project-module>
+

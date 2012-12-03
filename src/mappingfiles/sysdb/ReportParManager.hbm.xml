@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ReportParManager" 
+    table="REPORT_PAR_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="parId"
+        type="java.lang.String"
+        column="PAR_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="reportId"
+        type="java.lang.String"
+        column="REPORT_ID"
+        length="38"
+    />
+    <property
+        name="enable"
+        type="int"
+        column="ENABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="parCode"
+        type="java.lang.String"
+        column="PAR_CODE"
+        length="42"
+    />
+    <property
+        name="dispName"
+        type="java.lang.String"
+        column="DISP_NAME"
+        length="42"
+    />
+    <property
+        name="parIndex"
+        type="int"
+        column="PAR_INDEX"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="parType"
+        type="java.lang.String"
+        column="PAR_TYPE"
+        length="42"
+    />
+    <property
+        name="isVisual"
+        type="int"
+        column="IS_VISUAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="parField"
+        type="java.lang.String"
+        column="PAR_FIELD"
+        length="1000"
+    />
+    <property
+        name="selectSource"
+        type="java.lang.String"
+        column="SELECT_SOURCE"
+        length="1000"
+    />
+    <property
+        name="compareType"
+        type="java.lang.String"
+        column="COMPARE_TYPE"
+        length="42"
+    />
+    <property
+        name="parDefaultvalue"
+        type="java.lang.String"
+        column="PAR_DEFAULTVALUE"
+        length="200"
+    />
+    <property
+        name="parDefaultdisplayvalue"
+        type="java.lang.String"
+        column="PAR_DEFAULTDISPLAYVALUE"
+        length="200"
+    />
+    <property
+        name="isDisplay"
+        type="int"
+        column="IS_DISPLAY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isMust"
+        type="int"
+        column="IS_MUST"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isAdvanced"
+        type="int"
+        column="IS_ADVANCED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="colId"
+        type="java.lang.String"
+        column="COL_ID"
+        length="38"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

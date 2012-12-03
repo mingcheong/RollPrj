@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.GlCoaDetailCode" 
+    table="GL_COA_DETAIL_CODE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="COA_CODE_ID"
+        type="java.lang.String"
+        column="COA_CODE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="COA_DETAIL_ID"
+        type="java.lang.String"
+        column="COA_DETAIL_ID"
+        not-null="true"
+        length="38"
+    />
+    <property
+        name="LEVEL_CODE"
+        type="java.lang.String"
+        column="LEVEL_CODE"
+        length="42"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to GlCoaDetail -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

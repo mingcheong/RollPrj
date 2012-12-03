@@ -1,0 +1,119 @@
+select "XMBM",
+       "XMMC",
+       "DIV_CODE",
+       "DIV_NAME",
+
+substr(DIV_CODE,0,3) as bm_code,
+(select chr_name  from ele_enterprise where chr_code =substr(d.DIV_CODE,0,3) ) as bmmc,
+
+       "SET_YEAR",
+       "C1",
+       "C2",
+       "C3",
+       "C3NAME",
+       "C4",
+       "C4NAME",
+       "C5",
+       "C6",
+       "C6NAME",
+       "EN_SORT",
+       "CS_SORT",
+       "ACCT_NAME",
+       "ACCT_NAME_JJ",
+       "YSJC_MC",
+"YAPS","YAPS12",
+       "F1",
+       "F2",
+       "F3",
+       "F6",
+       "F7",
+       "F8",
+       "F9",
+       "F10",
+       "TOTAL_SUM",
+"ZJ",
+       "NODE_NAME",
+       "BZ",
+decode(C3,'003',ZJ-YAPS-F1-F7,'') as QK,
+       "EN_ID"
+  from (
+        
+        select a.en_id,
+                a.xmbm,
+                a.xmmc,
+                a.div_code,
+                a.div_name,
+                a.set_year,
+                a.c1,
+                a.c2,
+                a.c3,
+                (select total_sum from rp_xmsb where sb_code = '222'
+                 and a.rg_code = rg_code
+                 and set_year = a.set_year
+                 and a.xmxh = xmxh) as yaps,
+                (select total_sum from rp_xmsb where sb_code = '222'
+                 and a.rg_code = rg_code
+                 and set_year = 2012
+                 and a.xmxh = xmxh) as yaps12,    
+                (select chr_name
+                   from dm_zxzq
+                  where chr_code = a.c3
+                    and a.rg_code = rg_code
+                    and set_year = a.set_year) as c3name,
+                a.c4,
+                (select chr_name
+                   from dm_xmfl
+                  where chr_code = a.c4
+                    and a.rg_code = rg_code
+                    and set_year = a.set_year) as c4name,
+                a.c5,
+                a.c6,
+                (select chr_name
+                   from dm_xmzt
+                  where chr_code = a.c6
+                    and a.rg_code = rg_code
+                    and set_year = a.set_year) as c6name,
+                a.en_sort,
+                a.cs_sort,
+                b.acct_name,
+                b.acct_name_jj,
+                c.chr_name as ysjc_mc,
+                b.f1,
+                b.f2,
+                b.f3,
+                b.f6,
+                b.f7,
+                b.f8,
+                b.f9,
+                b.f10,
+                b.total_sum,
+               a.total_sum as zj,
+                b.bz,
+                decode(a.node_code,
+                       null,
+                       'Œ¥ÀÕ…Û',
+                       '',
+                       'Œ¥ÀÕ…Û',
+                       0,
+                       'Œ¥ÀÕ…Û',
+                       3,
+                       'œÓƒøÃÓ±®',
+                       5,
+                       '‘§À„ø∆“ª…Û',
+                       10,
+                       '‘§À„¥¶÷’…Û') as node_name,
+                  c.chr_code
+          from vw_rp_xmcx_lc a
+         left join rp_xmsb b
+            on a.xmxh = b.xmxh
+         left join dm_ysjc c
+            on b.ysjc_dm = c.chr_id
+         left join ele_budget_subject d
+            on b.bs_id = d.chr_id
+         where a.set_year = b.set_year
+           and b.sb_code not in ('111', '222', '333')   and a.c6 in ('002')   and
+       a.set_year in ('2013')  
+        
+        
+                
+ order by a.div_code, a.set_year, a.xmbm, a.en_sort) d

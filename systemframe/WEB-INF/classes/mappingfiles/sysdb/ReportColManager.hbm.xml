@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+  
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ReportColManager" 
+    table="REPORT_COL_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="colId"
+        type="java.lang.String"
+        column="COL_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="reportId"
+        type="java.lang.String"
+        column="REPORT_ID"
+        length="38"
+    />
+    <property
+        name="enable"
+        type="int"
+        column="ENABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="colType"
+        type="int"
+        column="COL_TYPE"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="isVisual"
+        type="int"
+        column="IS_VISUAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="colIndex"
+        type="int"
+        column="COL_INDEX"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="colCode"
+        type="java.lang.String"
+        column="COL_CODE"
+        length="42"
+    />
+    <property
+        name="dispName"
+        type="java.lang.String"
+        column="DISP_NAME"
+        length="42"
+    />
+    <property
+        name="unionName"
+        type="java.lang.String"
+        column="UNION_NAME"
+        length="42"
+    />
+    <property
+        name="colField"
+        type="java.lang.String"
+        column="COL_FIELD"
+        length="1000"
+    />
+    <property
+        name="dispWidth"
+        type="int"
+        column="DISP_WIDTH"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="colAlign"
+        type="java.lang.String"
+        column="COL_ALIGN"
+        length="1"
+    />
+    <property
+        name="orderIndex"
+        type="int"
+        column="ORDER_INDEX"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="isTotal"
+        type="int"
+        column="IS_TOTAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isMultilevel"
+        type="int"
+        column="IS_MULTILEVEL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="blevel"
+        type="int"
+        column="B_LEVEL"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="elevel"
+        type="int"
+        column="E_LEVEL"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="isCross"
+        type="int"
+        column="IS_CROSS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="refDataSource"
+        type="java.lang.String"
+        column="REF_DATA_SOURCE"
+        length="1000"
+    />
+    <property
+        name="refIndex"
+        type="int"
+        column="REF_INDEX"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="isNumber"
+        type="int"
+        column="IS_NUMBER"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="intNumber"
+        type="int"
+        column="INT_NUMBER"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="eleDispmode"
+        type="java.lang.String"
+        column="ELE_DISPMODE"
+        length="200"
+    />
+    <property
+        name="isDispother"
+        type="int"
+        column="IS_DISPOTHER"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!-- ================================================
+         部门预算ant脚本，用于构建三层包，包括打服务器端与客户端
+     jar包，暂不支持部署。
+                           Create by Tim at 2006-7-29
+                           Modified by Qinj at 2008-6-19
+     ================================================= -->
+<project name="RollPrj" default="all" basedir=".">
+    <!-- 发包标记: a - 表示有支持文件升级; b - 表示有数据库更新;
+                 c - 表示离线版有支持文件升级; d - 表示离线版有数据库更新; -->
+    <property name="built.flag" value="" description="[a][b][c][d]" />
+    <property name="built.purpose" value="build" description="[test][demo][RC][build]" />
+    <property name="built.consumer" value="" description="[][SUZHOU]" />
+    <property name="built.withCA" value="true" description="[true][false]" />
+    <property name="built.need_compile" value="true" description="[true][false]" />
+    <property name="built.withSupportCodeCheck" value="false" description="[true][false]" />
+
+    <!-- 是否使用CA -->
+    <condition property="hasCA">
+        <equals arg1="${built.withCA}" arg2="false" />
+    </condition>
+
+    <!-- Initializing -->
+    <condition property="isBuild">
+        <equals arg1="${built.purpose}" arg2="build" />
+    </condition>
+    <condition property="isTest">
+        <equals arg1="${built.purpose}" arg2="test" />
+    </condition>
+    <condition property="isRC">
+        <equals arg1="${built.purpose}" arg2="RC" />
+    </condition>
+    <condition property="isDemo">
+        <equals arg1="${built.purpose}" arg2="demo" />
+    </condition>
+
+    <condition property="forGA">
+        <equals arg1="${built.consumer}" arg2="" />
+    </condition>
+
+    <condition property="needCompile">
+        <equals arg1="${built.need_compile}" arg2="true" />
+    </condition>
+
+    <condition property="isSupportCodeCheck">
+        <equals arg1="${built.withSupportCodeCheck}" arg2="true" />
+    </condition>
+
+    <tstamp>
+        <format property="today.now" pattern="yyyy-MM-dd HH:mm:ss" />
+        <format property="today.date" pattern="yyyyMMdd" />
+    </tstamp>
+    <property name="built.date" value="${today.date}" />
+    <!--property name="built.date" value="20080723nightly" /-->
+
+    <property name="app.ver" value="1.0.00.00" />
+    <property name="app.version" value="${app.ver}${built.consumer}(${built.purpose}${built.date})" />
+    <property name="app.builtby" value="eqiao" />
+    <property name="ver.remark" value="V1.0" />
+
+    <property name="app.home" value="." />
+    <property name="src.home" value="${app.home}/src" />
+    <property name="appweb.name" value="systemframe" />
+
+    <property name="lib.home" value="${app.home}/${appweb.name}/WEB-INF/lib" />
+    <property name="classes.home" value="${app.home}/${appweb.name}/WEB-INF/classes" />
+
+    <property name="build.home" value="${app.home}/build" />
+    <property name="dau.build.home" value="${app.home}/buildDAU" />
+    <property name="doc.home" value="${app.home}/doc" />
+    <!--
+    <property name="report.home" value="${app.home}/report/fbraq" />
+    -->
+
+    <property name="script.home" value="${app.home}/script" />
+    <property name="release.home" value="${app.home}/release" />
+
+    <property name="clientjar.file" value="${release.home}/rp-client.jar" />
+    <property name="serverjar.file" value="${release.home}/rp-server.jar" />
+    <property name="dau.file" value="${release.home}/downandupload.jar" />
+
+    <!-- ===============================
+           编译时的classpath
+         =============================== -->
+    <path id="complie.classpath">
+        <pathelement location="${classes.home}" />
+
+        <fileset dir="${lib.home}">
+            <include name="*.jar" />
+        </fileset>
+
+    </path>
+
+    <!-- 处理不同版本 -->    
+    <target name="do_unlessBuild" unless="isBuild">
+        <echo file="${build.home}/rp_version.properties">sys_id=101&#xD;&#xA;</echo>
+        <echo file="${build.home}/rp_version.properties" append="true">app_version=${app.version}&#xD;&#xA;</echo>
+        <echo file="${build.home}/rp_version.properties" append="true">ver_remark=${ver.remark}</echo>         
+    </target> 
+	
+    <target name="do_ifTest" if="isTest">
+        <copy todir="${build.home}" verbose="true" overwrite="true">
+            <fileset dir="${release.home}/isTest" includes="log4j_rp.properties" />
+        </copy>
+    </target>
+    <target name="do_unlessTest" unless="isTest">
+        <copy todir="${build.home}" verbose="true" overwrite="true">
+            <fileset dir="${release.home}/isRC" includes="log4j_rp.properties" />
+        </copy>
+    </target>
+
+    <target name="do_forGA" if="forGA">
+    </target>
+    <target name="do_unlessForGA" unless="forGA">
+    </target>
+
+    <!-- 使用方法 -->
+    <target name="usage">
+        <echo message="" />
+        <echo message="滚动项目库 build script" />
+        <echo message="-----------------------------------------" />
+        <echo message="" />
+        <echo message="Among the available targets are:" />
+        <echo message="" />
+        <echo message="compile        --> build all; don't create JARs" />
+        <echo message="server-jars    --> create the server JAR files " />
+        <echo message="client-jars    --> create the client JAR files and jarsigner it" />
+        <echo message="offline-jars   --> create the offline JAR files" />
+        <echo message="all            --> all over the targets excluding javadoc" />
+        <echo message="javadoc        --> make the javadoc" />
+        <echo message="" />
+        <echo message="-----------------------------------------" />
+        <echo message="rp${app.version}${built.flag} is building..." />
+    </target>
+
+    <!-- =================================
+          target: all
+         ================================= -->
+    <target name="all" depends="server-jars,client-jars,offline-jars,dau-jars" description="--> 编译、构建客户端jar、构建服务端jar,dau-jars">
+        <echo message="工程构建成功" />
+    </target>
+
+    <!-- =================================
+          target: clean-all 清理所有的临时目录
+         ================================== -->
+    <target name="clean-all" depends="usage" if="needCompile">
+        <delete dir="${build.home}" />
+        <delete file="${serverjar.file}" verbose="true" />
+        <delete file="${clientjar.file}" verbose="true" />
+        <delete file="${offlinejar.file}" verbose="true" />
+        <delete file="${dau.file}" verbose="true" />
+    </target>
+
+    <target name="prepare" depends="clean-all" if="needCompile">
+        <mkdir dir="${build.home}" />
+        <mkdir dir="${release.home}" />
+    </target>
+
+    <!-- ==================================
+          target: compile 编译
+         ================================== -->
+    <target name="compile" depends="prepare" if="needCompile">
+        <javac srcdir="${src.home}" destdir="${build.home}" debug="yes">
+            <classpath refid="complie.classpath" />
+            <!-- <compilerarg line="-deprecation"/> -->
+        </javac>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.xml" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.gif" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.png" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.js" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.jpg" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.properties" />
+        </copy>
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" includes="**/*.xls" />
+        </copy>
+
+    </target>
+
+    <!-- 编译后-->
+    <target name="after_compile" depends="compile">
+    	<antcall target="do_unlessBuild" />
+        <antcall target="do_ifTest" />
+        <antcall target="do_unlessTest" />
+        <antcall target="do_forGA" />
+        <antcall target="do_unlessForGA" />
+    </target>
+
+    <!-- =================================
+          target: server-jars
+         ================================= -->
+    <target name="server-jars" depends="after_compile" description="--> 打包server端">
+        <delete file="${serverjar.file}" verbose="true" />
+
+        <jar destfile="${serverjar.file}">
+            <manifest>
+                <attribute name="Built-By" value="${app.builtby}" />
+                <attribute name="Version" value="${app.version}" />
+            </manifest>
+            <fileset dir="${build.home}">
+                <include name="gov/nbcs/rp/**" />
+            </fileset>
+        </jar>
+
+        <echo message="构建服务器端jar包完成：${serverjar.file}" />
+    </target>
+
+    <!-- =================================
+          target: client-jars
+            1、创建临时目录
+            2、copy界面程序文件至临时目录
+            3、解压ui依赖包至临时目录
+            4、打包
+            5、签名
+         ================================= -->
+    <target name="client-jars" depends="after_compile" description="--> 表现层打包">
+        <delete file="${clientjar.file}" verbose="true" />
+
+        <!-- 打包 -->
+        <jar destfile="${clientjar.file}">
+            <manifest>
+                <attribute name="Built-By" value="${app.builtby}" />
+                <attribute name="Version" value="${app.version}" />
+                <attribute name="Main-Class" value="com.foundercy.pf.framework.MainApplication" />
+            </manifest>
+            <fileset dir="${build.home}">
+                <include name="gov/nbcs/rp/**" />
+                <exclude name="gov/nbcs/rp/**/bs/**" />
+            </fileset>
+        </jar>
+
+        <!-- 签名 -->
+        <signjar jar="${clientjar.file}" keystore="mystore" storepass="storepass" keypass="keypass" alias="mykey" />
+
+        <echo message="构建客户端jar包完成：${clientjar.file}" />
+    </target>
+
+    <!-- =================================
+          target: javadoc
+         ================================= -->
+    <target name="javadoc" description="--> 制作java doc文档">
+        <delete dir="${doc.home}" />
+        <mkdir dir="${doc.home}" />
+        <javadoc destdir="${doc.home}" author="true" version="true" windowtitle="滚动项目库v1.0c-API">
+            <packageset dir="${src.home}">
+                <include name="gov/nbcs/rp/**" />
+            </packageset>
+        </javadoc>
+        <echo message="制作API文档完成：${doc.home}" />
+    </target>
+</project>

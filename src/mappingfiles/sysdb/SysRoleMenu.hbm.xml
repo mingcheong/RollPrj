@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRoleMenu" 
+    table="SYS_ROLE_MENU"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="ROLE_ID" 
+            column="ROLE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="MENU_ID" 
+            column="MENU_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to SysMenu -->
+    
+    	
+	
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysMenu" 
+    table="SYS_MENU"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="MENU_ID"
+        type="java.lang.String"
+        column="MENU_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="MENU_CODE"
+        type="java.lang.String"
+        column="MENU_CODE"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="MENU_NAME"
+        type="java.lang.String"
+        column="MENU_NAME"
+        length="60"
+    />
+    <property
+        name="ICON"
+        type="java.lang.String"
+        column="ICON"
+        length="100"
+    />
+    <property
+        name="ENABLED"
+        type="java.math.BigDecimal"
+        column="ENABLED"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="LEVEL_NUM"
+        type="int"
+        column="LEVEL_NUM"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="IS_LEAF"
+        type="java.math.BigDecimal"
+        column="IS_LEAF"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="TIPS"
+        type="java.lang.String"
+        column="TIPS"
+        length="100"
+    />
+    <property
+        name="DISP_ORDER"
+        type="java.lang.Long"
+        column="DISP_ORDER"
+        length="10"
+    />
+
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+    <property
+        name="USER_SYS_ID"
+        type="java.lang.String"
+        column="USER_SYS_ID"
+        length="42"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SysNavigate -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenu -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysMenuModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenuButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysToolbar -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysRoleMenuModule -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional many-to-one association to SysApp -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

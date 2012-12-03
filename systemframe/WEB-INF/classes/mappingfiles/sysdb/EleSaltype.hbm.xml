@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.EleSaltype" 
+    table="ELE_SALTYPE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="CHR_ID"
+        type="java.lang.String"
+        column="CHR_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="CHR_CODE"
+        type="java.lang.String"
+        column="CHR_CODE"
+        length="60"
+    />
+    <property
+        name="CHR_NAME"
+        type="java.lang.String"
+        column="CHR_NAME"
+        length="60"
+    />
+    <property
+        name="LEVEL_NUM"
+        type="java.lang.Long"
+        column="LEVEL_NUM"
+        length="16"
+    />
+    <property
+        name="IS_LEAF"
+        type="java.lang.Integer"
+        column="IS_LEAF"
+        length="1"
+    />
+    <property
+        name="ENABLED"
+        type="java.lang.Integer"
+        column="ENABLED"
+        length="1"
+    />
+    <property
+        name="CHR_CODE1"
+        type="java.lang.String"
+        column="CHR_CODE1"
+        length="60"
+    />
+    <property
+        name="CHR_CODE2"
+        type="java.lang.String"
+        column="CHR_CODE2"
+        length="60"
+    />
+    <property
+        name="CHR_CODE3"
+        type="java.lang.String"
+        column="CHR_CODE3"
+        length="60"
+    />
+    <property
+        name="PARENT_ID"
+        type="java.lang.String"
+        column="PARENT_ID"
+        length="60"
+    />
+    <property
+        name="SET_YEAR"
+        type="java.lang.Integer"
+        column="SET_YEAR"
+        length="4"
+    />
+    <property
+        name="DISP_CODE"
+        type="java.lang.String"
+        column="DISP_CODE"
+        length="42"
+    />
+    <property
+        name="CREATE_DATE"
+        type="java.lang.String"
+        column="CREATE_DATE"
+        length="30"
+    />
+    <property
+        name="CREATE_USER"
+        type="java.lang.String"
+        column="CREATE_USER"
+        length="42"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="42"
+    />
+    <property
+        name="IS_DELETED"
+        type="java.math.BigDecimal"
+        column="IS_DELETED"
+        length="22"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+    <property
+        name="CHR_CODE4"
+        type="java.lang.String"
+        column="CHR_CODE4"
+        length="42"
+    />
+    <property
+        name="CHR_CODE5"
+        type="java.lang.String"
+        column="CHR_CODE5"
+        length="42"
+    />
+    <property
+        name="RG_CODE"
+        type="java.lang.String"
+        column="RG_CODE"
+        length="42"
+    />
+    <property
+        name="CHR_ID1"
+        type="java.lang.String"
+        column="CHR_ID1"
+        length="38"
+    />
+    <property
+        name="CHR_ID2"
+        type="java.lang.String"
+        column="CHR_ID2"
+        length="38"
+    />
+    <property
+        name="CHR_ID3"
+        type="java.lang.String"
+        column="CHR_ID3"
+        length="38"
+    />
+    <property
+        name="CHR_ID4"
+        type="java.lang.String"
+        column="CHR_ID4"
+        length="38"
+    />
+    <property
+        name="CHR_ID5"
+        type="java.lang.String"
+        column="CHR_ID5"
+        length="38"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

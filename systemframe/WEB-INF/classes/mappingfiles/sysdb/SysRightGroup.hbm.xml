@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRightGroup" 
+    table="SYS_RIGHT_GROUP"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="RIGHT_GROUP_ID"
+        type="java.lang.String"
+        column="RIGHT_GROUP_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="RIGHT_GROUP_DESCRIBE"
+        type="java.lang.String"
+        column="RIGHT_GROUP_DESCRIBE"
+        length="10"
+    />
+    <property
+        name="RIGHT_TYPE"
+        type="java.lang.Integer"
+        column="RIGHT_TYPE"
+        length="1"
+    />
+    <property
+        name="RULE_ID"
+        type="java.lang.String"
+        column="RULE_ID"
+        length="38"
+    />
+
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
+

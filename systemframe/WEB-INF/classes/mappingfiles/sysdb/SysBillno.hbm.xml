@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysBillno" 
+    table="SYS_BILLNO"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="BILLNORULELINE_ID" 
+            column="BILLNORULELINE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="ELE_VALUE" 
+            column="ELE_VALUE" 
+            type="java.lang.String"
+            length="4000"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="MAX_NO"
+        type="int"
+        column="MAX_NO"
+        not-null="true"
+        length="9"
+    />
+    <property
+        name="LATEST_OP_DATE"
+        type="java.lang.String"
+        column="LATEST_OP_DATE"
+        length="30"
+    />
+    <property
+        name="LATEST_OP_USER"
+        type="java.lang.String"
+        column="LATEST_OP_USER"
+        length="38"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

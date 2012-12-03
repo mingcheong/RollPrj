@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysStatus" 
+    table="SYS_STATUS"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="STATUS_ID"
+        type="java.lang.String"
+        column="STATUS_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="STATUS_NAME"
+        type="java.lang.String"
+        column="STATUS_NAME"
+        not-null="true"
+        length="42"
+    />
+    <property
+        name="STATUS_CODE"
+        type="java.lang.String"
+        column="STATUS_CODE"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to SysModuleStatusButton -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+    <!-- bi-directional one-to-many association to SysModuleStatus -->
+        
+        
+		
+    
+        
+           
+        
+      
+           
+        
+   
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+
+<struts-config>
+  <data-sources />
+  
+  <form-beans >
+    <form-bean name="UpLoadForm" type="gov.mof.exchange.form.UpLoadForm" />
+	<form-bean name="UploadCryptographForm" type="gov.mof.exchange.form.UploadCryptographForm" />
+	<form-bean name="DownloadForm" type="gov.mof.exchange.form.DownloadForm" />
+	<form-bean name="DownloadCryptographForm" type="gov.mof.exchange.form.DownloadCryptographForm" />
+	<form-bean name="HeadForm" type="gov.mof.exchange.form.HeadForm" />
+	<form-bean name="TableForm" type="gov.mof.exchange.form.TableForm" />
+  </form-beans>
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="UpLoadForm"
+      input="/upload.jsp"
+      name="UpLoadForm"
+      path="/upload"
+      scope="request"
+      type="gov.mof.exchange.action.UpLoadAction">
+	<forward path="/upload.jsp" name="upload"/>
+    </action>
+	<action 
+		  attribute="UploadCryptographForm"
+		  input="/uploadCryptograph.jsp"
+		  name="UploadCryptographForm"
+		  path="/uploadCryptograph"
+		  scope="request"
+		  type="gov.mof.exchange.action.UploadCryptographAction"
+		  >
+	<forward path="/uploadCryptograph.jsp" name="uploadCryptograph"/>  
+	</action>
+	<action 
+		attribute="DownloadForm"
+		input="/download.jsp"
+		name="DownloadForm"
+		path="/download"
+		scope="request"
+		type="gov.mof.exchange.action.DownloadAction">	
+	<forward path="/download.jsp" name="download"/>	
+	</action>
+	<action 
+		attribute="DownloadCryptographForm"
+		input="/downloadCryptograph.jsp"
+		name="DownloadCryptographForm"
+		path="/downloadCryptograph"
+		scope="request"
+		type="gov.mof.exchange.action.DownloadCryptographAction">
+    <forward path="/downloadCryptograph.jsp" name="downloadCryptograph"/>	
+	</action>
+	<action 
+		attribute="HeadForm"
+		input="/head.jsp"
+		name="HeadForm"
+		path="/head"
+		scope="request"
+		type="gov.mof.exchange.action.HeadAction">
+    <forward path="/head.jsp" name="head"/>
+	<forward path="/table.jsp" name="table"/>
+	</action>
+	<action 
+		attribute="TableForm"
+		input="/table.jsp"
+		name="TableForm"
+		path="/table"
+		scope="request"
+		type="gov.mof.exchange.action.TableAction">
+	<forward path="/table.jsp" name="table"/>	
+	</action>
+ </action-mappings>
+  
+  <message-resources parameter="gov.mof.ApplicationResources" />
+
+</struts-config>
+

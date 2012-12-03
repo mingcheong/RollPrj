@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysLoginfo" 
+    table="SYS_LOGINFO"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="LOG_ID"
+        type="java.lang.String"
+        column="LOG_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="USER_ID"
+        type="java.lang.String"
+        column="USER_ID"
+        length="38"
+    />
+    <property
+        name="USER_NAME"
+        type="java.lang.String"
+        column="USER_NAME"
+        length="60"
+    />
+    <property
+        name="USER_IP"
+        type="java.lang.String"
+        column="USER_IP"
+        length="30"
+    />
+    <property
+        name="LOG_TYPE"
+        type="java.lang.String"
+        column="LOG_TYPE"
+        length="3"
+    />
+    <property
+        name="LOG_LEVEL"
+        type="java.lang.Integer"
+        column="LOG_LEVEL"
+        length="1"
+    />
+    <property
+        name="MENU_ID"
+        type="java.lang.String"
+        column="MENU_ID"
+        length="38"
+    />
+    <property
+        name="MODULE_ID"
+        type="java.lang.String"
+        column="MODULE_ID"
+        length="38"
+    />
+    <property
+        name="ACTION_TYPE_CODE"
+        type="java.lang.String"
+        column="ACTION_TYPE_CODE"
+        length="38"
+    />
+    <property
+        name="ACTION_NAME"
+        type="java.lang.String"
+        column="ACTION_NAME"
+        length="40"
+    />
+    <property
+        name="SYS_ID"
+        type="java.lang.String"
+        column="SYS_ID"
+        length="42"
+    />
+    <property
+        name="INSPECT_INFO"
+        type="java.lang.String"
+        column="INSPECT_INFO"
+        length="300"
+    />
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="100"
+    />
+    <property
+        name="WF_NAME"
+        type="java.lang.String"
+        column="WF_NAME"
+        length="60"
+    />
+    <property
+        name="CUR_NODE_NAME"
+        type="java.lang.String"
+        column="CUR_NODE_NAME"
+        length="60"
+    />
+    <property
+        name="MONEY"
+        type="java.math.BigDecimal"
+        column="MONEY"
+        length="16"
+    />
+    <property
+        name="VOU_ID"
+        type="java.lang.String"
+        column="VOU_ID"
+        length="38"
+    />
+    <property
+        name="OPER_TIME"
+        type="java.lang.String"
+        column="OPER_TIME"
+        length="60"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysLog -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

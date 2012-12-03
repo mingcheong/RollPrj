@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysWfNodeActionInspect" 
+    table="SYS_WF_NODE_ACTION_INSPECT"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"    
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="NODE_ID" 
+            column="NODE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="ACTION_TYPE_CODE" 
+            column="ACTION_TYPE_CODE" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="INSPECT_RULE_ID"
+	        type="java.lang.String"
+	        column="INSPECT_RULE_ID"
+	        length="38"
+        />
+    </composite-id>    
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

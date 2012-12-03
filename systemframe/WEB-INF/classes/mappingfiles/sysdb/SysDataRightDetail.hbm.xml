@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysDataRightDetail" 
+    table="SYS_DATA_RIGHT_DETAIL"
+    lazy="false"
+>
+
+
+
+
+
+        <id
+            name="RIGHT_DETAIL_ID" 
+            column="RIGHT_DETAIL_ID" 
+            type="java.lang.String"
+        >
+		<generator class="assigned" />
+             
+        </id>
+
+
+
+<property
+        name="RIGHT_ID" 
+            column="RIGHT_ID" 
+            type="java.lang.String"
+	     length="38"
+    />
+
+
+
+    <property
+        name="ELEMENT_VALUE"
+        type="java.lang.String"
+        column="ELEMENT_VALUE"
+        length="38"
+    />
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>

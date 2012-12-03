@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.ReportManager" 
+    table="REPORT_MANAGER"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="reportId"
+        type="java.lang.String"
+        column="REPORT_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="reportCode"
+        type="java.lang.String"
+        column="REPORT_CODE"
+        length="42"
+    />
+    <property
+        name="reportName"
+        type="java.lang.String"
+        column="REPORT_NAME"
+        length="200"
+    />
+    <property
+        name="intDbtype"
+        type="int"
+        column="INT_DBTYPE"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="reportSource"
+        type="java.lang.String"
+        column="REPORT_SOURCE"
+        length="1000"
+    />
+    <property
+        name="retroId"
+        type="java.lang.String"
+        column="RETRO_ID"
+        length="38"
+    />
+    <property
+        name="isMixcol"
+        type="int"
+        column="IS_MIXCOL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isTmptable"
+        type="int"
+        column="IS_TMPTABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="defaultFixcol"
+        type="int"
+        column="DEFAULT_FIXCOL"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="defaultPagesize"
+        type="int"
+        column="DEFAULT_PAGESIZE"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="sqlBefore"
+        type="java.sql.Clob"
+        column="SQL_BEFORE"
+        
+    />
+    <property
+        name="sqlMiddle"
+        type="java.sql.Clob"
+        column="SQL_MIDDLE"        
+    />
+    <property
+        name="sqlAfter"
+        type="java.sql.Clob"
+        column="SQL_AFTER"        
+    />
+    <property
+        name="remark"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+    <property
+        name="ownerName"
+        type="java.lang.String"
+        column="OWNER_NAME"
+        length="42"
+    />
+    <property
+        name="createDate"
+        type="java.sql.Timestamp"
+        column="CREATE_DATE"
+        length="7"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Timestamp"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Timestamp"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="enable"
+        type="int"
+        column="ENABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isValueonlydisp"
+        type="int"
+        column="IS_VALUEONLYDISP"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isDisadvance"
+        type="int"
+        column="IS_DISADVANCE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isGraphana"
+        type="java.lang.Integer"
+        column="IS_GRAPHANA"
+        length="1"
+    />
+    <property
+        name="isCheckbill"
+        type="java.lang.Integer"
+        column="IS_CHECKBILL"
+        length="1"
+    />
+    <property
+        name="checkHint"
+        type="java.sql.Clob"
+        column="CHECK_HINT"
+        
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

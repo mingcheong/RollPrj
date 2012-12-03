@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+    <class name="mappingfiles.sysdb.SysWfCondition" table="SYS_WF_CONDITIONS" lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true" >
+        <id name="CONDITION_ID" type="java.lang.String">
+            <column name="CONDITION_ID" length="38" />
+            <generator   class="assigned"   />     
+            <!-- <generator class="sequence">
+            	<param name="sequence">"SEQ_SYS_FRAME_ID"</param>
+            </generator>
+             -->
+        </id>
+        <property name="CONDITION_CODE" type="java.lang.String">
+            <column name="CONDITION_CODE" length="42" />
+        </property>
+        <property name="CONDITION_NAME" type="java.lang.String">
+            <column name="CONDITION_NAME" length="100" />
+        </property>
+        <property name="EXPRESSION" type="java.lang.String">
+            <column name="EXPRESSION" length="2000" />
+        </property>
+        <property name="REMARK" type="java.lang.String">
+            <column name="REMARK" length="200" />
+        </property>
+        <property name="CREATE_USER" type="java.lang.String">
+            <column name="CREATE_USER" length="42" />
+        </property>
+        <property name="CREATE_DATE" type="java.lang.String">
+            <column name="CREATE_DATE" length="30" />
+        </property>
+        <property name="LATEST_OP_USER" type="java.lang.String">
+            <column name="LATEST_OP_USER" length="42" />
+        </property>
+        <property name="LATEST_OP_DATE" type="java.lang.String">
+            <column name="LATEST_OP_DATE" length="30" />
+        </property>
+        <property name="LAST_VER" type="java.lang.String">
+            <column name="LAST_VER" length="30" />
+        </property>
+        <property name="BSH_EXPRESSION" type="java.lang.String">
+            <column name="BSH_EXPRESSION" length="4000" />
+        </property>
+        <property name="CONDITION_TYPE" type="java.lang.String">
+            <column name="CONDITION_TYPE" length="10" />
+        </property>
+        <!-- set name="sysWfConditionLineses" inverse="true" cascade="all">
+            <key>
+                <column name="CONDITION_ID" length="38"  />
+            </key>
+            <one-to-many class="mappingfiles.sysdb.SysWfConditionLine" />
+        </set -->
+    </class>
+</hibernate-mapping>

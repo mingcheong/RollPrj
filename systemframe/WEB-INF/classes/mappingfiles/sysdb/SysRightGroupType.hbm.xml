@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysRightGroupType" 
+    table="SYS_RIGHT_GROUP_TYPE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="RIGHT_GROUP_ID" 
+            column="RIGHT_GROUP_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="ELE_CODE" 
+            column="ELE_CODE" 
+            type="java.lang.String"
+            length="42"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="RIGHT_TYPE"
+        type="java.lang.Integer"
+        column="RIGHT_TYPE"
+        length="1"
+    />
+    <property
+        name="SET_YEAR"
+        type="java.lang.Integer"
+        column="SET_YEAR"
+        length="4"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
+

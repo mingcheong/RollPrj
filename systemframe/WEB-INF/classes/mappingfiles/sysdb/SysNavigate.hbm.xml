@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysNavigate" 
+    table="SYS_NAVIGATE"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+    <id
+        name="NAVIGATE_ID"
+        type="java.lang.String"
+        column="NAVIGATE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+
+
+    <property
+        name="SET_YEAR"
+        type="int"
+        column="SET_YEAR"
+        not-null="true"
+        length="4"
+    />
+    <property
+        name="NAVIGATE_CODE"
+        type="java.lang.String"
+        column="NAVIGATE_CODE"
+        length="42"
+    />
+    <property
+        name="NAVIGATE_NAME"
+        type="java.lang.String"
+        column="NAVIGATE_NAME"
+        length="60"
+    />
+    <property
+        name="LEVEL_NUM"
+        type="int"
+        column="LEVEL_NUM"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="IS_LEAF"
+        type="java.math.BigDecimal"
+        column="IS_LEAF"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="DISP_ORDER"
+        type="java.lang.Long"
+        column="DISP_ORDER"
+        length="10"
+    />
+    <property
+        name="NAVIGATE_ICON"
+        type="java.lang.String"
+        column="NAVIGATE_ICON"
+        length="100"
+    />
+    <property
+        name="ROLE_ID"
+        type="java.lang.String"
+        column="ROLE_ID"
+        length="42"
+    />
+    <property
+        name="TIPS"
+        type="java.lang.String"
+        column="TIPS"
+        length="100"
+    />
+    <property
+        name="MENU_ID"
+        type="java.lang.String"
+        column="MENU_ID"
+        length="42"
+    />
+    <property
+        name="PARENT_NAVIGATE_ID"
+        type="java.lang.String"
+        column="PARENT_NAVIGATE_ID"
+        length="38"
+    />
+    <property
+        name="LAST_VER"
+        type="java.lang.String"
+        column="LAST_VER"
+        length="30"
+    />
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to SysYear -->
+    
+        
+    
+        
+    
+    <!-- bi-directional many-to-one association to SysMenu -->
+    
+        
+    
+        
+    
+
+</class>
+</hibernate-mapping>
+

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="mappingfiles.sysdb.SysModuleView" 
+    table="SYS_MODULE_VIEW"
+    lazy="false"
+    dynamic-update="true"
+    dynamic-insert="true"
+>
+
+
+
+    <composite-id>
+        <key-property 
+            name="MODULE_ID" 
+            column="MODULE_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="UI_ID" 
+            column="UI_ID" 
+            type="java.lang.String"
+            length="38"
+        />
+        <key-property 
+            name="DISP_ORDER" 
+            column="DISP_ORDER" 
+            type="java.lang.Integer"
+            length="9"
+        />
+        <key-property 
+            name="SET_YEAR" 
+            column="SET_YEAR" 
+            type="java.lang.Integer"
+            length="4"
+        />
+    </composite-id>    
+
+
+
+
+
+
+    <property
+        name="REMARK"
+        type="java.lang.String"
+        column="REMARK"
+        length="200"
+    />
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
+

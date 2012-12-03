@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gb2312"?>
+<system>
+	<!--sysapp>
+		<id>001</id>
+		<name>应用支撑平台</name>
+		<url>http://localhost:9000/systemframe/loginnew</url>
+		<years>
+			<value>2008</value>
+			<value>2009</value>
+		</years>
+	</sysapp-->
+	<sysapp>
+		<id>801</id>
+		<name>滚动项目库管理系统</name>
+		<url>/systemframe/loginnew</url>
+		<years>
+			<value>2011</value>
+		</years>
+	</sysapp>
+	<!--portal-login-url>http://localhost:9000/nbcs/login.do</portal-login-url-->
+	
+</system>
+
