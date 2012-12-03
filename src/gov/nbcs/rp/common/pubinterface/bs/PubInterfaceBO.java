@@ -1183,16 +1183,16 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 				String bill_id = getbill(xmxh, "RP_TB_BILL");
 				if (getTasksNode(bill_id, "RP_TB_BILL") == null)
 					break;
-//				int j = getTasksNode(bill_id, "RP_TB_BILL").size() - 1;
-//				XMLData node = ((DTO) getTasksNode(bill_id, "RP_TB_BILL").get(j)).toXMLData();
-//				String node_name = node.get("node_name").toString();
-				String node_name = ((Map)(getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
+				// int j = getTasksNode(bill_id, "RP_TB_BILL").size() - 1;
+				// XMLData node = ((DTO) getTasksNode(bill_id,
+				// "RP_TB_BILL").get(j)).toXMLData();
+				// String node_name = node.get("node_name").toString();
+				String node_name = ((Map) (getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
 				// 查询项目填报当前最新批次号
 				String sql_xmjl = "select  nvl(max(a.p_no),0) as p_no from rp_xmjl_history a where a.set_year = ? and a.xmxh = ? ";
 				int xmjl_no = DBSqlExec.getIntValue(sql_xmjl, new String[] { SessionUtil.getLoginYear(), xmxh });
 
 				StringBuffer sql = new StringBuffer();
-
 
 				if (xmjl_no > 0)
 				{
@@ -1225,7 +1225,8 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 				sql.delete(0, sql.length());
 
 				// 插入项目填报明细历史数据
-				sql.append("INSERT INTO RP_XMSB_HISTORY SELECT A.*,0,0,0,'");
+				sql
+						.append("INSERT INTO RP_XMSB_HISTORY SELECT set_year,xmsbid,xmxh,ysjc_dm,bs_id,bsi_id,f1,f2,f3,f4,f5,f6,f7,f8,en_id,rg_code,sb_type,wszt_dm,lrr_dm,lrrq,xgr_dm,xgrq,bz,sb_code,total_sum,ysjc_mc,acct_name,acct_name_jj,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,0,0,0,'");
 				sql.append(node_name);
 				sql.append("',sysdate ");
 				sql.append(",").append(xmjl_no);
@@ -1257,19 +1258,19 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 			String bill_id = getbill(prjCodes, "RP_TB_BILL");
 			if (getTasksNode(bill_id, "RP_TB_BILL") == null)
 				return;
-//			int j = getTasksNode(bill_id, "RP_TB_BILL").size() - 1;
-//			XMLData node = ((DTO) getTasksNode(bill_id, "RP_TB_BILL").get(j)).toXMLData();
-//			String node_name = node.get("node_name").toString();
-			String	node_name = ((Map)(getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
+			// int j = getTasksNode(bill_id, "RP_TB_BILL").size() - 1;
+			// XMLData node = ((DTO) getTasksNode(bill_id,
+			// "RP_TB_BILL").get(j)).toXMLData();
+			// String node_name = node.get("node_name").toString();
+			String node_name = ((Map) (getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
 
 			// 查询项目填报当前最新批次号
 			String sql_xmjl = "select  nvl(max(a.p_no),0) as p_no from rp_xmjl_history a where a.set_year = ? and a.xmxh = ? ";
 			int xmjl_no = DBSqlExec.getIntValue(sql_xmjl, new String[] { SessionUtil.getLoginYear(), prjCodes });
 
 			StringBuffer sql = new StringBuffer();
-			xmjl_no=xmjl_no+1;
-			
-			
+			xmjl_no = xmjl_no + 1;
+
 			if (xmjl_no > 0)
 			{
 				// 删除历史数据
@@ -1277,7 +1278,7 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 				sql.append(" AND SET_YEAR='").append(SessionUtil.getLoginYear()).append("'");
 				sql.append(" AND node_name='").append(node_name).append("'");
 				sql.append(" and p_no = ").append(xmjl_no);
-				
+
 				list.add(sql.toString());
 				sql.delete(0, sql.length());
 
@@ -1335,11 +1336,11 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 				String bill_id = getbill(xmxh, "RP_TZ_BILL");
 				if (getTasksNode(bill_id, "RP_TZ_BILL") == null)
 					break;
-//				int j = getTasksNode(bill_id, "RP_TZ_BILL").size() - 1;
-//				XMLData node = ((DTO) getTasksNode(bill_id, "RP_TZ_BILL").get(j)).toXMLData();
-//				String node_name = node.get("node_name").toString();
-				String node_name = ((Map)(getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
-				
+				// int j = getTasksNode(bill_id, "RP_TZ_BILL").size() - 1;
+				// XMLData node = ((DTO) getTasksNode(bill_id,
+				// "RP_TZ_BILL").get(j)).toXMLData();
+				// String node_name = node.get("node_name").toString();
+				String node_name = ((Map) (getTasksNode(bill_id, "RP_TB_BILL").get(0))).get("node_name").toString();
 
 				StringBuffer sql = new StringBuffer();
 				// 删除历史数据
@@ -1386,7 +1387,8 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 	}
 
 
-	public int getCurBatchNO() throws Exception {
+	public int getCurBatchNO() throws Exception
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -563,11 +563,12 @@ public class TbProjectUI extends RpModulePanel implements PrjActionUI
 	{
 		tableAll.getTable().setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		tableAll.reset();
-		tableAll.getTable().getColumnModel().getColumn(1).setPreferredWidth(200);
+		tableAll.getTable().getColumnModel().getColumn(1).setPreferredWidth(150);
 		tableAll.getTable().getColumnModel().getColumn(2).setPreferredWidth(200);
 		tableAll.getTable().getColumnModel().getColumn(3).setPreferredWidth(200);
 		tableAll.getTable().getColumnModel().getColumn(4).setPreferredWidth(200);
 		tableAll.getTable().getColumnModel().getColumn(5).setPreferredWidth(150);
+		tableAll.getTable().getColumnModel().getColumn(6).setPreferredWidth(80);
 		// tableAll.getTable().getColumnModel().getColumn(5)
 		// .setPreferredWidth(250);
 		tableAll.getTable().setRowHeight(25);
@@ -840,8 +841,8 @@ public class TbProjectUI extends RpModulePanel implements PrjActionUI
 		RowPreferedLayout xmTableLay = new RowPreferedLayout(8);
 		xmTableAll.setLayout(xmTableLay);
 
-		String[] columnText = new String[] { "单位编码", "单位名称", "项目编码", "项目名称", "流程状态" };
-		String[] columnField = new String[] { "div_code", "div_name", "prj_code", "prj_name", "wf_state" };
+		String[] columnText = new String[] { "单位编码", "单位名称", "项目编码", "项目名称", "流程状态", "状态" };
+		String[] columnField = new String[] { "div_code", "div_name", "prj_code", "prj_name", "wf_state", "lockedstr" };
 		tableAll = new CustomTable(columnText, columnField, null, true, null);
 		setTableAllProp();
 

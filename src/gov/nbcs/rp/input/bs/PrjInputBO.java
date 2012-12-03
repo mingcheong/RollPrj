@@ -813,7 +813,7 @@ public class PrjInputBO extends PrjectManageBO implements IPrjInput
 		// sql.append("'审核中项目') as step_name,");
 		sql.append("a.xmxh,a.div_code,a.en_id,a.div_name,a.xmbm as prj_code,");
 		sql.append("a.wfzt_dm,a.c6,a.c5,a.xmmc as prj_name,");
-		sql.append("a.rg_code,a.en_sort,a.cs_sort,a.locked from rp_xmjl a where  1=1 ");
+		sql.append("a.rg_code,a.en_sort,a.cs_sort,decode(a.locked,1,'不可编辑','可编辑') as lockedstr,a.locked from rp_xmjl a where  1=1 ");
 		sql.append(filer);
 		return sql.toString();
 
@@ -826,7 +826,7 @@ public class PrjInputBO extends PrjectManageBO implements IPrjInput
 		sql.append(" SELECT A.SET_YEAR,");
 		sql.append("A.XMXH,A.DIV_CODE,A.EN_ID,A.DIV_NAME,A.XMBM AS PRJ_CODE,");
 		sql.append("A.WFZT_DM,A.C6,A.C5,A.XMMC AS PRJ_NAME,");
-		sql.append("A.RG_CODE,A.EN_SORT,A.CS_SORT,a.locked FROM RP_XMJL A,RP_TB_BILL   WHERE  A.XMXH=RP_TB_BILL.XMXH AND 1=1 ");
+		sql.append("A.RG_CODE,A.EN_SORT,A.CS_SORT,decode(a.locked,1,'不可编辑','可编辑') as lockedstr,a.locked FROM RP_XMJL A,RP_TB_BILL   WHERE  A.XMXH=RP_TB_BILL.XMXH AND 1=1 ");
 		sql.append(" AND  A.SET_YEAR=RP_TB_BILL.SET_YEAR");
 		sql.append(filer);
 		return sql.toString();
