@@ -23,9 +23,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import com.foundercy.pf.report.systemmanager.glquery.util.UUIDRandom;
-import com.foundercy.pf.util.DTO;
 import com.foundercy.pf.util.Global;
-import com.foundercy.pf.util.XMLData;
 import com.foundercy.pf.util.sessionmanager.SessionUtil;
 
 
@@ -2522,7 +2520,7 @@ public class PrjInputBO extends PrjectManageBO implements IPrjInput
 			sb.append(" not ");
 		sb.append("in( ");
 		sb.append("select en_id,max(last_ver) from RP_FJ_FILES group by en_id) ");
-		sb.append(enId);
+		sb.append(enId).append(" order by t.en_id");
 		return DBSqlExec.getDataSet(sb.toString());
 	}
 }

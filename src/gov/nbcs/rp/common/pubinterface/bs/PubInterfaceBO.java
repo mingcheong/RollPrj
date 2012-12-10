@@ -30,10 +30,8 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import com.foundercy.pf.dictionary.interfaces.IControlDictionary;
-import com.foundercy.pf.util.DTO;
 import com.foundercy.pf.util.Tools;
 import com.foundercy.pf.util.UUIDRandom;
-import com.foundercy.pf.util.XMLData;
 import com.foundercy.pf.util.sessionmanager.SessionUtil;
 
 
@@ -1171,7 +1169,7 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 	}
 
 
-	public String savehistory(String[] prjCodes) throws Exception
+	public String savehistory(String[] prjCodes, boolean isSave) throws Exception
 	{
 		String msg = "";
 		try
@@ -1225,15 +1223,45 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 				sql.delete(0, sql.length());
 
 				// 插入项目填报明细历史数据
-				sql
-						.append("INSERT INTO RP_XMSB_HISTORY SELECT set_year,xmsbid,xmxh,ysjc_dm,bs_id,bsi_id,f1,f2,f3,f4,f5,f6,f7,f8,en_id,rg_code,sb_type,wszt_dm,lrr_dm,lrrq,xgr_dm,xgrq,bz,sb_code,total_sum,ysjc_mc,acct_name,acct_name_jj,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,0,0,0,'");
-				sql.append(node_name);
+				sql.append("INSERT INTO RP_XMSB_HISTORY SELECT set_year,xmsbid,xmxh,ysjc_dm,bs_id,bsi_id,f1,f2,f3,f4,f5,f6,f7,f8,en_id,rg_code,sb_type,wszt_dm,lrr_dm,lrrq,xgr_dm,xgrq,bz,sb_code");
+				sql.append(",total_sum,ysjc_mc,acct_name,acct_name_jj,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,0,0,0,'").append(node_name);
 				sql.append("',sysdate ");
 				sql.append(",").append(xmjl_no);
 				sql.append(" FROM rp_xmsb A WHERE XMXH='").append(xmxh).append("'");
 				sql.append(" and set_year='").append(SessionUtil.getLoginYear()).append("'");
 				list.add(sql.toString());
 				sql.delete(0, sql.length());
+
+				if (isSave)
+				{
+					String sql_p_state = "select count(1) from rp_xmjl_state a where a.set_year = ? and a.xmxh = ? ";
+					int count = DBSqlExec.getIntValue(sql_p_state, new String[] { SessionUtil.getLoginYear(), xmxh });
+					count++;
+					if (count <= 2)
+					{
+						// 保存一上和二上的填报数据
+						sql.append("INSERT INTO RP_XMJL_STATE  SELECT A.*,'");
+						sql.append(node_name);
+						sql.append("',sysdate ");
+						sql.append(",").append(xmjl_no);
+						sql.append(",'").append(SessionUtilEx.getUserInfoContext().getAttribute("user_name"));
+						sql.append("',").append(count).append(" FROM RP_XMJL  A WHERE XMXH='").append(xmxh).append("'");
+						sql.append(" and set_year='").append(SessionUtil.getLoginYear()).append("'");
+						list.add(sql.toString());
+						sql.delete(0, sql.length());
+
+						// 保存一上和二上的填报数据明细数据
+						sql
+								.append("INSERT INTO RP_XMSB_STATE SELECT set_year,xmsbid,xmxh,ysjc_dm,bs_id,bsi_id,f1,f2,f3,f4,f5,f6,f7,f8,en_id,rg_code,sb_type,wszt_dm,lrr_dm,lrrq,xgr_dm,xgrq,bz,sb_code");
+						sql.append(",total_sum,ysjc_mc,acct_name,acct_name_jj,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,0,0,0,'").append(node_name);
+						sql.append("',sysdate ");
+						sql.append(",").append(xmjl_no).append(",").append(count);
+						sql.append(" FROM rp_xmsb A WHERE XMXH='").append(xmxh).append("'");
+						sql.append(" and set_year='").append(SessionUtil.getLoginYear()).append("'");
+						list.add(sql.toString());
+						sql.delete(0, sql.length());
+					}
+				}
 			}
 
 			QueryStub.getQueryTool().executeBatch(list);
@@ -1303,7 +1331,9 @@ public class PubInterfaceBO extends PrjectManageBO implements IPubInterface
 			sql.delete(0, sql.length());
 
 			// 插入项目填报明细历史数据
-			sql.append("INSERT INTO RP_XMSB_HISTORY SELECT A.*,0,0,0,'");
+			sql.append("INSERT INTO RP_XMSB_HISTORY SELECT set_year,xmsbid, xmxh,ysjc_dm,bs_id,bsi_id,f1,");
+			sql.append("f2,f3,f4,f5,f6,f7,f8,en_id,rg_code,sb_type,wszt_dm,lrr_dm,lrrq,xgr_dm,xgrq,bz,sb_code,");
+			sql.append("total_sum,ysjc_mc,acct_name,acct_name_jj,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,0,0,0,'");
 			sql.append(node_name);
 			sql.append("',sysdate ");
 			sql.append(",").append(xmjl_no);

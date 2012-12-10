@@ -147,7 +147,7 @@ public class Rp2BussinessMessage implements IMessageClient
 
 		if (SessionUtilEx.isFisVis())
 		{
-			List result1 = dao.findBySql("select a.chr_code,count(*) as num from RP_FJ_FILES a where a.dw_sure = 1 and a.cz_sure is null and a.set_year = ? group by a.chr_code order by a.chr_code", new Object[] { SessionUtil.getLoginYear() });
+			List result1 = dao.findBySql("select a.chr_code,count(*) as num from RP_FJ_FILES a where (a.dw_sure = 1 or a.cz_sure = 1) and a.set_year = ? group by a.chr_code order by a.chr_code", new Object[] { SessionUtil.getLoginYear() });
 			if (result1 != null && !result1.isEmpty())
 			{
 				for (int i = 0; i < result1.size(); i++)

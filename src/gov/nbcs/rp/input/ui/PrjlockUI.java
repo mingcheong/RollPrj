@@ -567,7 +567,7 @@ public class PrjlockUI extends RpModulePanel implements OperatorUI
 			}
 
 			String sqlString = "SELECT A.XMXH,B.XMXH LOCK_XMXH,A.RG_CODE,A.SET_YEAR,A.XMBM,A.XMMC,A.DIV_CODE,A.DIV_NAME,"
-					+ "B.MONEY1,B.MONEY2,decode(B.IS_LOCK,'1','ÊÇ','·ñ')  IS_LOCK FROM (SELECT * FROM RP_XMJL A WHERE 1=1" + filter.toString() + ") A" + "¡¡ LEFT JOIN  RP_XMLOCK B ON A.XMXH = B.XMXH ";
+					+ "A.MONEY1,A.MONEY2,decode(B.IS_LOCK,'1','ÊÇ','·ñ')  IS_LOCK FROM (select a.*,c.f2 as MONEY1,c.f3 as MONEY2 from RP_XMJL a inner join rp_xmsb c on a.xmxh = c.xmxh and a.set_year = c.set_year where c.sb_code = '333' " + filter.toString() + ") A" + "¡¡ LEFT JOIN  RP_XMLOCK B ON A.XMXH = B.XMXH ";
 
 			dsKzs = DBSqlExec.client().getDataSet(sqlString);
 			ct.setDataSet(dsKzs);

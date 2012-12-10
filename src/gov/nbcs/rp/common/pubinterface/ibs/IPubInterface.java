@@ -209,7 +209,7 @@ public interface IPubInterface {
 
 	public DataSet getOptDataTypeList() throws Exception;
 
-	public String savehistory(String[] prjCodes) throws Exception;
+	public String savehistory(String[] prjCodes,boolean isSave) throws Exception;
 
 	public String saveTZhistory(String[] prjCodes) throws Exception;
 

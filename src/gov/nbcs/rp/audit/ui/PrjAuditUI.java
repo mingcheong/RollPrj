@@ -2094,7 +2094,7 @@ public class PrjAuditUI extends RpModulePanel implements PrjAuditActionUI
 //					}
 					
 					
-					PubInterfaceStub.getMethod().savehistory(prjCodes);
+					PubInterfaceStub.getMethod().savehistory(prjCodes,false);
 					if (!PubInterfaceStub.getMethod().BackAuditInfoByDiv(0, prjCodes, GlobalEx.user_code, GlobalEx.getCurrRegion(), moduleid).getSuccess())
 					{
 						info.append("项目: [" + prjCodes[i] + "]" + prjNames[i] + " 没有审核权限\n");

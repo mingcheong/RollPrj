@@ -156,14 +156,14 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 							Map m = new HashMap();
 							try
 							{
-								String enCode="";
-								if(enPer.getValue()==null)
-									enCode="";
+								String enCode = "";
+								if (enPer.getValue() == null)
+									enCode = "";
 								else
 								{
 									m = (Map) PrjInputStub.getMethod().getEnCode(enPer.getValue()).get(0);
-									
-									 enCode = m.get("chr_code").toString();
+
+									enCode = m.get("chr_code").toString();
 								}
 
 								dsKzs = PrjInputStub.getMethod().getDwkzsByEnIdLike(Global.loginYear, Global.getCurrRegion(), enCode);
@@ -241,11 +241,14 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 					dsKzs = PrjInputStub.getMethod().getDwkzsByEnId(Global.loginYear, Global.getCurrRegion(), enPer.getValue());
 				}
 				else
-				{   String enCode="";
-					if(treeEn.getSelectedNode()==treeEn.getRoot()) {
-						
+				{
+					String enCode = "";
+					if (treeEn.getSelectedNode() == treeEn.getRoot())
+					{
+
 					}
-					else{
+					else
+					{
 						enCode = Common.nonNullStr(((Map) PrjInputStub.getMethod().getEnCode(enPer.getValue()).get(0)).get("chr_code"));
 					}
 					dsKzs = PrjInputStub.getMethod().getDwkzsByEnIdLike(Global.loginYear, Global.getCurrRegion(), enCode);
@@ -277,6 +280,7 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 				Double f6 = null;
 				Double f7 = null;
 				String bz = null;
+				String enable = null;
 
 				if (ct.getDataSet().gotoBookmark(bmk))
 				{
@@ -284,6 +288,7 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 					// ct.getDataSet().fieldByName("dwkzsid").getString();
 					String enid = ct.getDataSet().fieldByName("en_id").getString();
 					String enCode = ct.getDataSet().fieldByName("en_code").getString();
+
 					if (!"".equals(ct.getDataSet().fieldByName("f2").getString()))
 					{
 						f2 = Double.valueOf(ct.getDataSet().fieldByName("f2").getString());
@@ -304,13 +309,16 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 					{
 						f7 = Double.valueOf(ct.getDataSet().fieldByName("f7").getString());
 					}
-
+					if (!"".equals(ct.getDataSet().fieldByName("enable").getString()))
+					{
+						enable = ct.getDataSet().fieldByName("enable").getString();
+					}
 					bz = ct.getDataSet().fieldByName("bz").getString();
 
 					listSql.add("delete from rp_dwkzs where en_code = '" + enCode + "' and set_year = " + Global.loginYear);
 					StringBuffer sql = new StringBuffer();
 					sql.append("insert into rp_dwkzs");
-					sql.append("(set_year, dwkzsid, en_id,f1,f2, f3,f6, f7, rg_code, lrr_dm, lrrq, xgr_dm, xgrq, bz, en_code)");
+					sql.append("(set_year, dwkzsid, en_id,f1,f2, f3,f6, f7, rg_code, lrr_dm, lrrq, xgr_dm, xgrq, bz, en_code,enable)");
 					sql.append(" values(");
 					sql.append(Global.loginYear).append(",'");
 					sql.append(UUIDRandom.generate()).append("','");
@@ -326,7 +334,11 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 					sql.append(Global.getUserId()).append("','");
 					sql.append(Tools.getCurrDate()).append("','");
 					sql.append(Common.nonNullStr(bz)).append("','");
-					sql.append(enCode).append("'");
+					sql.append(enCode).append("',");
+					if (enable.equals("ÊÇ"))
+						sql.append("1");
+					else
+						sql.append("0");
 					sql.append(")");
 					listSql.add(sql.toString());
 				}
@@ -409,13 +421,13 @@ public class PrjDwkzsMainUI extends RpModulePanel implements OperatorUI
 			try
 			{
 				String divCode = enPer.getShowContent().split(" ")[0];
-				if(treeEn.getSelectedNode()==treeEn.getRoot())
-					divCode="";
+				if (treeEn.getSelectedNode() == treeEn.getRoot())
+					divCode = "";
 				DataSet ds = PrjInputStub.getMethod().getControlMoney(divCode, Global.loginYear);
 				ds.beforeFirst();
 				List listSql = new ArrayList();
 				String enCode = null;
-				
+
 				listSql.add("delete from rp_dwkzs where en_code like '" + divCode + "%' and set_year = " + Global.loginYear);
 
 				while (ds.next())

@@ -710,7 +710,7 @@ public class FinshAudit extends RpModulePanel implements PrjAuditActionUI,Operat
 				}
 			}
 
-			PubInterfaceStub.getMethod().savehistory(prjCodes);
+			PubInterfaceStub.getMethod().savehistory(prjCodes, true);
 
 			PrjAuditStub.getMethod().finshAudit(list, GlobalEx.user_code, GlobalEx.getCurrRegion(), Global.loginYear, moduleid, 0);
 

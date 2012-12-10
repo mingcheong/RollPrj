@@ -1139,7 +1139,7 @@ public class PrjAuditBO extends PrjectManageBO implements IPrjAudit
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT A.SET_YEAR,A.RG_CODE,A.EN_ID,A.DIV_CODE,DECODE(A.LOCKED,1,'Ëø¶¨','Î´Ëø¶¨') AS LOCKED,");
 		sql.append("A.DIV_NAME,A.XMXH AS PRJ_ID,A.XMXH,A.XMBM AS PRJ_CODE,");
-		sql.append("A.XMMC AS PRJ_NAME,(F.F2+F.F3+F.F6+F.F7) SMONEY ");
+		sql.append("A.XMMC AS PRJ_NAME,(F.F2+F.F3+F.F6+F.F7) SMONEY,F.f2,F.F3, F.F6,F.F7 ");
 		sql.append("FROM RP_XMJL A,");
 		sql.append("RP_XMSB F,RP_TB_BILL  WHERE A.XMXH=RP_TB_BILL.XMXH AND A.XMXH=F.XMXH AND A.SET_YEAR = F.SET_YEAR AND F.SB_CODE='333'  " + filter + " ");
 		sql.append(getAuditFilter(0, divCodes));

@@ -1747,7 +1747,7 @@ public class TbProjectUI extends RpModulePanel implements PrjActionUI
 						f2 = Double.parseDouble(strF2);
 					if (f2Sum > f2)
 					{
-						JOptionPane.showMessageDialog(Global.mainFrame, "一般预算已超过控制数（" + f2 + "元），请调整基金预算金额！");
+						JOptionPane.showMessageDialog(Global.mainFrame, "一般预算已超过控制数（" + f2 + "元），请调整一般预算金额！");
 						return;
 					}
 
@@ -1775,7 +1775,7 @@ public class TbProjectUI extends RpModulePanel implements PrjActionUI
 								f2 = Double.parseDouble(strF2);
 							if (f2Sum > f2)
 							{
-								JOptionPane.showMessageDialog(Global.mainFrame, "一般预算已超过控制数（" + f2 + "元），请调整基金预算金额！");
+								JOptionPane.showMessageDialog(Global.mainFrame, "一般预算已超过控制数（" + f2 + "元），请调整一般预算金额！");
 								return;
 							}
 
