@@ -41,6 +41,6 @@ public abstract interface IQrBudget
 	public abstract void insertTempBudget(String paramString1, String paramString2, String paramString3, String paramString4) throws Exception;
 
 
-	public abstract DataSet findRPBUDGET(String[] divCodes, String dataType, String setYear, String rgCode) throws Exception;
+	public abstract DataSet findRPBUDGET(String[] divCodes, String dataType, String fpType, String setYear, String rgCode) throws Exception;
 
 }

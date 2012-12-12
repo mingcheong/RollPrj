@@ -628,14 +628,20 @@ public class QrBudgetBO implements IQrBudget
 	}
 
 
-	public DataSet findRPBUDGET(String[] divCodes, String dataType, String setYear, String rgCode) throws Exception
+	public DataSet findRPBUDGET(String[] divCodes, String dataType, String fpType, String setYear, String rgCode) throws Exception
 	{
 		DataSet dsData = DataSet.create();
 		StringBuffer sql = new StringBuffer();
 		sql.append("SELECT A.SET_YEAR,A.RG_CODE,A.EN_ID,A.DIV_CODE,A.DIV_NAME,A.XMXH AS PRJ_ID,A.XMXH,");
-		sql.append("A.XMBM AS PRJ_CODE,A.XMMC AS PRJ_NAME,(F.F2 + F.F3 + F.F6 + F.F7) SMONEY,A.NODE_NAME,A.GKDW_CODE FROM");
-		sql.append(" VW_RP_XMCX_LC A,RP_XMSB F WHERE A.XMXH = F.XMXH");
-		sql.append(" AND A.SET_YEAR = F.SET_YEAR AND F.SB_CODE = '333' AND F.IS_IDX IS NULL");
+		sql.append("A.XMBM AS PRJ_CODE,A.XMMC AS PRJ_NAME,nvl(F.F2 + F.F3 + F.F6 + F.F7,0) as SMONEY,A.NODE_NAME,A.GKDW_CODE FROM");
+
+		if (fpType.equals("1"))
+			sql.append(" VW_RP_XMCX_LC_P2 A left join  RP_XMSB_p2 F");
+		else if (fpType.equals("2"))
+			sql.append(" VW_RP_XMCX_LC A left join  RP_XMSB F");
+
+		sql.append(" on A.XMXH = F.XMXH where ");
+		sql.append(" A.SET_YEAR = F.SET_YEAR AND F.SB_CODE = '333' AND F.IS_IDX IS NULL");
 
 		if (divCodes != null && divCodes.length > 0)
 		{
@@ -652,6 +658,7 @@ public class QrBudgetBO implements IQrBudget
 			sql.append(" AND A.NODE_CODE = 3");
 		else
 			sql.append(" AND A.NODE_CODE != 3");
+		sql.append(" and a.c6 = '002'");
 		DBSqlExec.getDataSet(sql.toString(), new Object[] { setYear, rgCode }, dsData);
 		return dsData;
 	}

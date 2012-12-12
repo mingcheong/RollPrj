@@ -53,6 +53,8 @@ public class SameforTemp extends RpModulePanel
 
 	FComboBox fpczt = null;
 
+	FComboBox fpType = null;
+
 	FListPanel bottomPanel = null;
 
 	FTextArea fSbly = null;
@@ -152,6 +154,18 @@ public class SameforTemp extends RpModulePanel
 		FPanel xmxx = new FPanel();
 		xmxx.setLayout(xmLay);
 
+		this.fpType = new FComboBox("批次");
+		String types = "1#一上+2#二上";
+
+		this.fpType.setRefModel(types);
+		this.fpType.setValue("2");
+		this.fpType.addValueChangeListener(new ValueChangeListener()
+		{
+			public void valueChanged(ValueChangeEvent e)
+			{
+				SameforTemp.this.doAdd();
+			}
+		});
 		this.fpczt = new FComboBox("状态");
 		String pczt = "0#申报+1#审核";
 
@@ -169,7 +183,7 @@ public class SameforTemp extends RpModulePanel
 		xmxx.setRightInset(10);
 		xmxx.setBottomInset(10);
 		xmxx.setTopInset(10);
-
+		xmxx.addControl(this.fpType, new TableConstraints(1, 1, false, true));
 		xmxx.addControl(this.fpczt, new TableConstraints(1, 1, false, true));
 
 		this.pnlInfoXm = new FSplitPane();
@@ -228,7 +242,7 @@ public class SameforTemp extends RpModulePanel
 				JOptionPane.showMessageDialog(Global.mainFrame, "请选择要查询单位");
 				return;
 			}
-			this.dsAll = QrBudgetAction.getMethod().findRPBUDGET(this.divCodes, fpczt.getValue().toString(), Global.loginYear, Global.getCurrRegion());
+			this.dsAll = QrBudgetAction.getMethod().findRPBUDGET(this.divCodes, fpczt.getValue().toString(), fpType.getValue().toString(), Global.loginYear, Global.getCurrRegion());
 			this.table.setDataSet(this.dsAll);
 			setTableProp();
 		}
@@ -332,7 +346,11 @@ public class SameforTemp extends RpModulePanel
 					return;
 
 				String[] type = retVal.split("_");
-				QrSync.getMethod().syncBudget(Global.loginYear, type[0], type[1], lBudgetData);
+				String pNo = fpType.getValue().toString();
+				if (pNo.equals("1"))
+					QrSync.getMethod().syncBudget1(Global.loginYear, type[0], type[1], lBudgetData);
+				else
+					QrSync.getMethod().syncBudget2(Global.loginYear, type[0], type[1], lBudgetData);
 				JOptionPane.showMessageDialog(Global.mainFrame, "同步成功");
 			}
 		}

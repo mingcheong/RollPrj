@@ -38,7 +38,15 @@ public interface SyncInterface
 	 * 
 	 * @throws Exception
 	 */
-	public void syncBudget(String setYear, String batchNo, String dateType, List lBudgetData) throws Exception;
+	public void syncBudget1(String setYear, String batchNo, String dateType, List lBudgetData) throws Exception;
+
+
+	/**
+	 * 同步表数据接口(根据方案编码)
+	 * 
+	 * @throws Exception
+	 */
+	public void syncBudget2(String setYear, String batchNo, String dateType, List lBudgetData) throws Exception;
 
 
 	/**
