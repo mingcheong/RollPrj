@@ -117,15 +117,16 @@ public class Rp2BussinessMessage implements IMessageClient
 		StringBuffer return_sql = new StringBuffer();
 
 		return_sql
-				.append("SELECT MENU.MENU_ID,MENU.MENU_NAME,MENU.USER_SYS_ID ,COUNT(MENU.MENU_ID) AS NUM,MD.MODULE_NAME,MD.MODULE_ID ")
+				.append("SELECT MENU.MENU_ID,MENU.MENU_NAME,MENU.USER_SYS_ID,COUNT(MENU.MENU_ID) AS NUM,MD.MODULE_NAME,MD.MODULE_ID,T.STATUS_CODE,MDS.DISPLAY_TITLE ")
 				.append(
-						" FROM SYS_MENU MENU,SYS_ROLE_MENU RM,SYS_MENU_MODULE MM,SYS_WF_MODULE_NODE SWMN,SYS_WF_NODES N ,SYS_WF_CURRENT_TASKS T,SYS_MODULE MD, SYS_USER_ROLE_RULE   USER_ROLE,SYS_WF_ROLE_NODE RR")
-				.append(" WHERE RM.MENU_ID = MENU.MENU_ID AND MENU.MENU_ID = MM.MENU_ID ").append(" AND MM.MODULE_ID = SWMN.MODULE_ID AND SWMN.NODE_ID = N.NODE_ID AND N.WF_ID = T.WF_ID ").append(
-						" AND MM.MODULE_ID = MD.MODULE_ID ").append(" AND T.NEXT_NODE_ID = N.NODE_ID ").append(
-						" AND (EXISTS(SELECT 1 FROM RP_SB_BILL RP WHERE RP.BILL_ID = T.ENTITY_ID AND SET_YEAR= " + SessionUtil.getLoginYear()).append(condition).append(")").append(
+						" FROM SYS_MENU MENU,SYS_ROLE_MENU RM,SYS_MENU_MODULE MM,SYS_WF_MODULE_NODE SWMN,SYS_WF_NODES N ,SYS_WF_CURRENT_ITEM T,SYS_MODULE MD, SYS_MODULE_STATUS    MDS, SYS_STATUS SST, SYS_USER_ROLE_RULE   USER_ROLE,SYS_WF_ROLE_NODE RR")
+				.append(" WHERE RM.MENU_ID = MENU.MENU_ID AND MENU.MENU_ID = MM.MENU_ID ").append(" AND MM.MODULE_ID = SWMN.MODULE_ID AND SWMN.NODE_ID = N.NODE_ID    AND T.NODE_ID=N.NODE_ID").append(
+						" AND MM.MODULE_ID = MD.MODULE_ID    AND MD.MODULE_ID=MDS.MODULE_ID  AND MDS.STATUS_ID=SST.STATUS_ID AND SST.STATUS_CODE=T.STATUS_CODE").append(
+						" AND (EXISTS(SELECT 1 FROM RP_SB_BILL RP WHERE exists (select 1 from  RP_XMJL_DIVSB where rp.xmxh=xmxh and rp.set_year=set_year) and RP.BILL_ID = T.ENTITY_ID AND SET_YEAR= "
+								+ SessionUtil.getLoginYear()).append(condition).append(")").append(
 						" OR EXISTS(SELECT 1 FROM RP_TB_BILL RP WHERE RP.BILL_ID = T.ENTITY_ID AND SET_YEAR= " + SessionUtil.getLoginYear()).append(condition).append(")) ").append(
 						" AND RM.ROLE_ID = ? AND USER_ROLE.ROLE_ID=RM.ROLE_ID AND RR.NODE_ID=N.NODE_ID  AND RR.ROLE_ID=RM.ROLE_ID AND USER_ROLE.USER_ID= ? AND RM.SET_YEAR= "
-								+ SessionUtil.getLoginYear()).append(" GROUP BY MENU.MENU_ID,MENU.MENU_NAME,MENU.USER_SYS_ID,MD.MODULE_NAME,MD.MODULE_ID ");
+								+ SessionUtil.getLoginYear()).append(" GROUP BY MENU.MENU_ID,MENU.MENU_NAME,MENU.USER_SYS_ID,MD.MODULE_NAME,MD.MODULE_ID,T.STATUS_CODE,MDS.DISPLAY_TITLE ");
 		List result = dao.findBySql(return_sql.toString(), new Object[] { RoleId, UserId });
 
 		for (int i = 0, size = result.size(); i < size; i++)
@@ -135,19 +136,20 @@ public class Rp2BussinessMessage implements IMessageClient
 			FTaskItemDTO task = new FTaskItemDTO();
 			task.setRole_id(RoleId);
 			task.setMenu_id(data.get("menu_id").toString());
-			task.setMenu_name(data.get("menu_name").toString());
+			task.setMenu_name(data.get("module_name").toString());
 			task.setSysapp(data.get("user_sys_id").toString());
 			task.setModule_id(data.get("module_id").toString());
 			task.setMsg_type_code("1");
 			task.setMsg_type_name("日常事务");
 			task.setMsg_type_name_local(data.get("module_name").toString());
-			task.setTask_content("：" + data.get("num").toString() + "条 ");
+			task.setTask_content(data.get("display_title").toString() + "：" + data.get("num").toString() + "条 ");
 			return_list.add(task);
 		}
 
 		if (SessionUtilEx.isFisVis())
 		{
-			List result1 = dao.findBySql("select a.chr_code,count(*) as num from RP_FJ_FILES a where (a.dw_sure = 1 or a.cz_sure = 1) and a.set_year = ? group by a.chr_code order by a.chr_code", new Object[] { SessionUtil.getLoginYear() });
+			List result1 = dao.findBySql("select a.chr_code,count(*) as num from RP_FJ_FILES a where (a.dw_sure = 1 or a.cz_sure = 1) and a.set_year = ? group by a.chr_code order by a.chr_code",
+					new Object[] { SessionUtil.getLoginYear() });
 			if (result1 != null && !result1.isEmpty())
 			{
 				for (int i = 0; i < result1.size(); i++)
@@ -158,7 +160,7 @@ public class Rp2BussinessMessage implements IMessageClient
 					task.setMenu_id("900006001");
 					task.setMenu_name(data.get("chr_code").toString());
 					task.setSysapp("801");
-					task.setModule_id("80100110"+i);
+					task.setModule_id("80100110" + i);
 					task.setMsg_type_code("1");
 					task.setMsg_type_name("预算表平台");
 					task.setMsg_type_name_local(data.get("chr_code").toString());
