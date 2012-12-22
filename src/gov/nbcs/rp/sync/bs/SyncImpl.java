@@ -1,7 +1,6 @@
 package gov.nbcs.rp.sync.bs;
 
 import gov.nbcs.rp.common.DBSqlExec;
-import gov.nbcs.rp.common.GlobalEx;
 import gov.nbcs.rp.common.UUID;
 import gov.nbcs.rp.common.datactrl.DataSet;
 import gov.nbcs.rp.common.datactrl.QueryStub;
@@ -13,10 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.foundercy.pf.control.MessageBox;
-import com.foundercy.pf.util.Global;
-import com.foundercy.pf.util.UUIDRandom;
 import com.foundercy.pf.util.dao.springdao.GeneralDAO;
-import com.foundercy.pf.util.sessionmanager.SessionUtil;
 
 
 
@@ -297,7 +293,7 @@ public class SyncImpl implements SyncInterface
 
 	}
 
-	
+
 	public synchronized void syncBudget1(String setYear, String batchNo, String dateType, List lBudgetData) throws Exception
 	{
 		List sqlList = new ArrayList();
@@ -418,6 +414,7 @@ public class SyncImpl implements SyncInterface
 		dao.executeBySql(sUpdateFb);
 		dao.executeBySql("drop table " + sTableName);
 	}
+
 
 	public synchronized void syncBudget2(String setYear, String batchNo, String dateType, List lBudgetData) throws Exception
 	{
