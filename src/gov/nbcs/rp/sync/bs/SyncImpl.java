@@ -496,7 +496,7 @@ public class SyncImpl implements SyncInterface
 		sInsFb_deSql.append("acct_code_jj,acct_name_jj,start_date,end_date,");
 		sInsFb_deSql.append("stock_flag,total_prices," + filterE);
 		sInsFb_deSql.append(" from vw_fb_p_detail_pfs r ");
-		sInsFb_deSql.append(" where set_year='" + setYear + "' and exists (select 1 from " + sTableName + " t where r.div_code=t.div_code and r.prj_code=t.prj_code ))");
+		sInsFb_deSql.append(" where set_year='" + setYear + "' and exists (select 1 from " + sTableName + " t where r.div_code=t.div_code and r.prj_code=t.prj_code ) and r.detail_type not in ('111', '222', '333') and r.c6 in ('002')) ");
 
 		String sDelOldFb_baseSql = "delete from fb_p_base r where set_year='" + setYear + "' and exists (select 1 from " + sTableName + " t where r.prj_code=t.prj_code )";
 		String sDelOldFb_deSql = "delete from fb_p_detail_pfs r where set_year='" + setYear + "' and exists (select 1 from " + sTableName + " t where r.prj_code=t.prj_code  )";
