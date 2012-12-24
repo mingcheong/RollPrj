@@ -181,7 +181,7 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 		xmxx.setLeftInset(10);
 		xmxx.setRightInset(10);
 		xmxx.setBottomInset(10);
-		tbPrj = new CustomTable(new String[] { "单位名称", "附件名称", "操作人", "操作时间", "单位确认", "财政确认" }, new String[] { "chr_code", "name", "user_ver", "last_ver", "DW_SURE", "CZ_SURE" }, null, true,
+		tbPrj = new CustomTable(new String[] { "单位名称", "附件名称", "操作人", "操作时间", "财政确认", "单位确认" }, new String[] { "chr_code", "name", "user_ver", "last_ver", "CZ_SURE", "DW_SURE" }, null, true,
 				new String[] { "user_ver" });
 
 		tbPrj.getTable().addMouseListener(new MouseAdapter()
@@ -284,7 +284,9 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 		pnlff.setDividerLocation(200);
 
 		pnlff.addControl(xmxx);
-		pnlXM.addControl(getQueryType(), new TableConstraints(1, 1, false, false));
+		if (GlobalEx.isFisVis())
+			pnlXM.addControl(getQueryType(), new TableConstraints(1, 1, false, false));
+
 		pnlXM.addControl(tbPrj, new TableConstraints(15, 6, false, false));
 
 		dw_advice = new FTextArea();
@@ -364,18 +366,21 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 			{
 				DataSet data = null;
 				String flowstatus = "001";// 默认值
-				// TODO 查询
-				switch (this.cbQueryType.getSelectedIndex())
-				{
-					case 0:
-						// 未送审
-						flowstatus = "001";
-						break;
-					case 1:
-						// 已送审
-						flowstatus = "002";
-						break;
 
+				if (GlobalEx.isFisVis())
+				{
+					switch (this.cbQueryType.getSelectedIndex())
+					{
+						case 0:
+							// 未送审
+							flowstatus = "001";
+							break;
+						case 1:
+							// 已送审
+							flowstatus = "002";
+							break;
+
+					}
 				}
 				if (treeEn.getSelectedNode() != treeEn.getRoot())
 				{
@@ -477,7 +482,8 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 				return;
 			}
 			this.state = 1;
-			cbQueryType.setEnabled(false);
+			if (GlobalEx.isFisVis())
+				cbQueryType.setEnabled(false);
 			treeEn.setEnabled(false);
 			this.setButtonState(false);
 		}
@@ -688,7 +694,8 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 			JOptionPane.showMessageDialog(Global.mainFrame, "上传成功");
 			this.state = -1;
 			this.setButtonState(true);
-			cbQueryType.setEnabled(true);
+			if (GlobalEx.isFisVis())
+				cbQueryType.setEnabled(true);
 			treeEn.setEnabled(true);
 			refreshPrjData();
 		}

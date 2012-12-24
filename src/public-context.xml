@@ -11,13 +11,13 @@
 		<property name="username" value="t_rollp0817"/>
 		-->
 		
-		<!-- 公司服务器 -->
+		<!-- 公司服务器 
 		<property name="url" value="jdbc:oracle:thin:@10.144.24.50:1521:yzcz" /> 
-		<property name="username" value="rollpyz1222"/>
+		<property name="username" value="rollpyz1222"/>-->
 		
-		<!-- 测试服务器 
+		<!-- 测试服务器 -->	
 		<property name="url" value="jdbc:oracle:thin:@192.168.1.201:1521:orcl" /> 
-		<property name="username" value="rollpyz1212"/>	-->	
+		<property name="username" value="rollpyz"/>	
 		
 		<!-- 密码 -->
 		<property name="password" value="1" />
