@@ -387,9 +387,9 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 					if (ds != null && !ds.isEmpty() && !ds.bof() && !ds.eof())
 					{
 						String divCode = ds.fieldByName("div_code").getString();
-						divCode = divCode.substring(0, 3);
-						filter.append(" and t.en_id like '" + divCode + "%'");
-
+						String  pCode = divCode.substring(0, 3);
+						filter.append(" and t.en_id like '" + pCode + "%'");
+						filter.append(" and t.chr_code like '" + divCode + "%'");
 						data = PrjInputStub.getMethod().getFjFiles(filter.toString(), flowstatus);
 
 					}
@@ -1293,27 +1293,40 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 
 	public void doDisable()
 	{
-		// TODO Auto-generated method stub
-		// int user=0;// 0 dw 1 cz
-		String sql = "", name = "";
-		if (tbPrj.getTable().getValueAt(0, 2) != null)
-			name = tbPrj.getTable().getValueAt(0, 2).toString();
-		else
-			JOptionPane.showMessageDialog(Global.mainFrame, "部门附件未保存", "消息", JOptionPane.INFORMATION_MESSAGE);
 
-		if (GlobalEx.isFisVis())
+		int[] rows = tbPrj.getTable().getSelectedRows();
+		if (rows.length == 0)
 		{
-			sql = "UPDATE RP_FJ_FILES SET CZ_SURE=NULL WHERE NAME='" + name + "'";
-
+			JOptionPane.showMessageDialog(Global.mainFrame, "请选择一条记录进行取消确认");
+			return;
 		}
-		else
-		{
-			sql = "UPDATE RP_FJ_FILES SET DW_SURE=NULL WHERE NAME='" + name + "'";
-		}
-
+		String chr_code = "";
+		String name = "";
+		String sql = "";
+		List sqlList = new ArrayList();
 		try
 		{
-			QueryStub.getClientQueryTool().executeUpdate(sql);
+
+			for (int i = 0; i < rows.length; i++)
+			{
+				String bmk = tbPrj.rowToBookmark(rows[i]);
+				if (tbPrj.getDataSet().gotoBookmark(bmk))
+				{
+					chr_code = tbPrj.getDataSet().fieldByName("chr_code").getString();
+					name = tbPrj.getDataSet().fieldByName("name").getString();
+					if (GlobalEx.isFisVis())
+					{
+						sql = "UPDATE RP_FJ_FILES SET CZ_SURE=NULL WHERE NAME='" + name + "' AND CHR_CODE = '" + chr_code + "'";
+
+					}
+					else
+					{
+						sql = "UPDATE RP_FJ_FILES SET DW_SURE=NULL WHERE NAME='" + name + "' AND CHR_CODE = '" + chr_code + "'";
+					}
+					sqlList.add(sql);
+				}
+			}
+			QueryStub.getClientQueryTool().executeBatch(sqlList);
 			refreshPrjData();
 		}
 		catch (Exception e)
@@ -1326,32 +1339,45 @@ public class PrjFileSendMainUI extends RpModulePanel implements PrjAuditActionUI
 
 	public void doEnable()
 	{
-		// TODO Auto-generated method stub
-		String sql = "", name = "";
 
-		if (tbPrj.getTable().getValueAt(0, 2) != null)
-			name = tbPrj.getTable().getValueAt(0, 2).toString();
-		else
-			JOptionPane.showMessageDialog(Global.mainFrame, "部门附件未保存", "消息", JOptionPane.INFORMATION_MESSAGE);
-
-		if (GlobalEx.isFisVis())
+		int[] rows = tbPrj.getTable().getSelectedRows();
+		if (rows.length == 0)
 		{
-			sql = "UPDATE RP_FJ_FILES SET CZ_SURE =1 WHERE NAME='" + name + "'";
-
+			JOptionPane.showMessageDialog(Global.mainFrame, "请选择一条记录进行确认");
+			return;
 		}
-		else
-		{
-			sql = "UPDATE RP_FJ_FILES SET DW_SURE=1 WHERE NAME='" + name + "'";
-		}
-
+		String chr_code = "";
+		String name = "";
+		String sql = "";
+		List sqlList = new ArrayList();
 		try
 		{
-			QueryStub.getClientQueryTool().executeUpdate(sql);
+
+			for (int i = 0; i < rows.length; i++)
+			{
+				String bmk = tbPrj.rowToBookmark(rows[i]);
+				if (tbPrj.getDataSet().gotoBookmark(bmk))
+				{
+					chr_code = tbPrj.getDataSet().fieldByName("chr_code").getString();
+					name = tbPrj.getDataSet().fieldByName("name").getString();
+					if (GlobalEx.isFisVis())
+					{
+						sql = "UPDATE RP_FJ_FILES SET CZ_SURE =1 WHERE NAME='" + name + "' AND CHR_CODE = '" + chr_code + "'";
+
+					}
+					else
+					{
+						sql = "UPDATE RP_FJ_FILES SET DW_SURE=1 WHERE NAME='" + name + "' AND CHR_CODE = '" + chr_code + "'";
+					}
+					sqlList.add(sql);
+				}
+			}
+			QueryStub.getClientQueryTool().executeBatch(sqlList);
 			refreshPrjData();
 		}
 		catch (Exception e)
 		{
-			ErrorInfo.showErrorDialog(e, "取消确认出错！");
+			ErrorInfo.showErrorDialog(e, "附件确认出错！");
 		}
 	}
 

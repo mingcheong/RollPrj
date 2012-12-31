@@ -2515,12 +2515,12 @@ public class PrjInputBO extends PrjectManageBO implements IPrjInput
 	public DataSet getFjFiles(String enId, String flowstatus) throws Exception
 	{
 		StringBuffer sb = new StringBuffer("select t.*,DECODE(CZ_SURE,NULL,'','¡Ì') CZ_SURE,DECODE(DW_SURE,NULL,'','¡Ì') DW_SURE ");
-		sb.append("from RP_FJ_FILES t where (en_id,last_ver)");
+		sb.append("from RP_FJ_FILES t where (en_id,chr_code,last_ver)");
 		if ("002".equals(flowstatus))
 			sb.append(" not ");
 		sb.append("in( ");
-		sb.append("select en_id,max(last_ver) from RP_FJ_FILES group by en_id) ");
-		sb.append(enId).append(" order by t.en_id");
+		sb.append("select en_id,chr_code,max(last_ver) from RP_FJ_FILES group by en_id,chr_code) ");
+		sb.append(enId).append(" order by t.en_id,t.chr_code");
 		return DBSqlExec.getDataSet(sb.toString());
 	}
 }
